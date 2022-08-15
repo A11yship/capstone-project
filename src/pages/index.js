@@ -16,7 +16,7 @@ export default function HomePage() {
 			</Head>
 			<h1>Meine Aufgaben App</h1>
 			<h2>Aufgabenliste</h2>
-			<StyledList>
+			<StyledList role="list">
 				{tasks.map(task => (
 					<StyledListItem key={task.id}>
 						<span>{task.name}</span>
