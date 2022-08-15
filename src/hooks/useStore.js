@@ -1,6 +1,13 @@
+import {nanoid} from 'nanoid';
 import create from 'zustand';
 
 const useStore = create(set => ({
+	tasks: [
+		{id: nanoid(), name: 'Abwaschen', time: 15},
+		{id: nanoid(), name: 'Post sortieren', time: 2},
+	],
+
+	//Beispielcode
 	counter: 0,
 	setCounter(counter) {
 		set({counter});
