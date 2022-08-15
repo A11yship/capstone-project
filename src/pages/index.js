@@ -1,6 +1,5 @@
 import Head from 'next/head';
 
-import Layout from '../components/Layout';
 import StyledList from '../components/List/StyledList';
 import StyledListItem from '../components/ListItem/StyledListItem';
 import useStore from '../hooks/useStore';
@@ -9,7 +8,7 @@ export default function HomePage() {
 	const tasks = useStore(state => state.tasks);
 
 	return (
-		<Layout>
+		<>
 			<Head>
 				<title key="title">My Project</title>
 				<meta key="description" name="description" content="This is my project" />
@@ -24,6 +23,6 @@ export default function HomePage() {
 					</StyledListItem>
 				))}
 			</StyledList>
-		</Layout>
+		</>
 	);
 }
