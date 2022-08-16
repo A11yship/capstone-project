@@ -11,7 +11,10 @@ export default function HomePage() {
 
 	function handleSubmit(event) {
 		event.preventDefault();
-		addTask(event.target.task.value, event.target.duration.value);
+		const name = event.target.task.value.trim();
+		const duration = Number.parseInt(event.target.duration.value, 10);
+		addTask(name, duration);
+		event.target.reset();
 	}
 
 	return (
@@ -33,9 +36,16 @@ export default function HomePage() {
 			<h2>Aufgabe hinzufügen</h2>
 			<StyledForm onSubmit={handleSubmit}>
 				<label htmlFor="task">Aufgabe</label>
-				<input type="text" name="task" id="task" />
+				<input type="text" name="task" id="task" required placeholder="Neue Aufgabe" />
 				<label htmlFor="duration">Dauer in Minuten</label>
-				<input type="number" name="duration" id="duration" />
+				<input
+					type="number"
+					name="duration"
+					id="duration"
+					required
+					min={1}
+					placeholder="1"
+				/>
 				<button>Speichern</button>
 			</StyledForm>
 		</>
