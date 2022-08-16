@@ -1,21 +1,12 @@
 import Head from 'next/head';
 
-import StyledForm from '../components/Form/StyledForm';
+import Form from '../components/Form/form';
 import StyledList from '../components/List/StyledList';
 import StyledListItem from '../components/ListItem/StyledListItem';
 import useStore from '../hooks/useStore';
 
 export default function HomePage() {
 	const tasks = useStore(state => state.tasks);
-	const addTask = useStore(state => state.addTask);
-
-	function handleSubmit(event) {
-		event.preventDefault();
-		const name = event.target.task.value.trim();
-		const duration = Number.parseInt(event.target.duration.value, 10);
-		addTask(name, duration);
-		event.target.reset();
-	}
 
 	return (
 		<>
@@ -34,20 +25,7 @@ export default function HomePage() {
 				))}
 			</StyledList>
 			<h2>Aufgabe hinzufügen</h2>
-			<StyledForm onSubmit={handleSubmit}>
-				<label htmlFor="task">Aufgabe</label>
-				<input type="text" name="task" id="task" required placeholder="Neue Aufgabe" />
-				<label htmlFor="duration">Dauer in Minuten</label>
-				<input
-					type="number"
-					name="duration"
-					id="duration"
-					required
-					min={1}
-					placeholder="1"
-				/>
-				<button>Speichern</button>
-			</StyledForm>
+			<Form />
 		</>
 	);
 }
