@@ -7,6 +7,12 @@ import useStore from '../hooks/useStore';
 
 export default function HomePage() {
 	const tasks = useStore(state => state.tasks);
+	const addTask = useStore(state => state.addTask);
+
+	function handleSubmit(event) {
+		event.preventDefault();
+		addTask(event.target.task.value, event.target.duration.value);
+	}
 
 	return (
 		<>
@@ -25,7 +31,7 @@ export default function HomePage() {
 				))}
 			</StyledList>
 			<h2>Aufgabe hinzufügen</h2>
-			<StyledForm>
+			<StyledForm onSubmit={handleSubmit}>
 				<label htmlFor="task">Aufgabe</label>
 				<input type="text" name="task" id="task" />
 				<label htmlFor="duration">Dauer in Minuten</label>
