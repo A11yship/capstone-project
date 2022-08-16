@@ -1,5 +1,6 @@
 import Head from 'next/head';
 
+import StyledForm from '../components/Form/StyledForm';
 import StyledList from '../components/List/StyledList';
 import StyledListItem from '../components/ListItem/StyledListItem';
 import useStore from '../hooks/useStore';
@@ -24,13 +25,13 @@ export default function HomePage() {
 				))}
 			</StyledList>
 			<h2>Aufgabe hinzufügen</h2>
-			<form>
+			<StyledForm>
 				<label htmlFor="task">Aufgabe</label>
 				<input type="text" name="task" id="task" />
 				<label htmlFor="duration">Dauer in Minuten</label>
 				<input type="number" name="duration" id="duration" />
 				<button>Speichern</button>
-			</form>
+			</StyledForm>
 		</>
 	);
 }
