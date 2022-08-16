@@ -23,6 +23,14 @@ export default function HomePage() {
 					</StyledListItem>
 				))}
 			</StyledList>
+			<h2>Aufgabe hinzufügen</h2>
+			<form>
+				<label htmlFor="task">Aufgabe</label>
+				<input type="text" name="task" id="task" />
+				<label htmlFor="duration">Dauer in Minuten</label>
+				<input type="number" name="duration" id="duration" />
+				<button>Speichern</button>
+			</form>
 		</>
 	);
 }
