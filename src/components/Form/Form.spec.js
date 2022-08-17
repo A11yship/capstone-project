@@ -6,7 +6,7 @@ import '@testing-library/jest-dom';
 import {render, screen} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
-import Form from './form';
+import Form from './Form';
 
 describe('Form component', () => {
 	it('should be displayed', () => {
