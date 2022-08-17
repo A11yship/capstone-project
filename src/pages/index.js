@@ -1,6 +1,6 @@
 import Head from 'next/head';
 
-import Form from '../components/Form/form';
+import Form from '../components/Form/Form';
 import StyledList from '../components/List/StyledList';
 import StyledListItem from '../components/ListItem/StyledListItem';
 import useStore from '../hooks/useStore';
