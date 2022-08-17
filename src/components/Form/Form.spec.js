@@ -19,6 +19,19 @@ describe('Form component', () => {
 		render(<Form onSubmit={handleClick} />);
 		const button = screen.getByText(`Speichern`);
 		await userEvent.click(button);
-		expect(handleClick).toBeCalled;
+		expect(handleClick).toHaveBeenCalled;
+	});
+	it('should accept inputs', async () => {
+		const onSubmit = jest.fn();
+		const task = 'Post';
+		const duration = '5';
+		render(<Form onSubmit={onSubmit} />);
+		const inputTask = screen.getByLabelText('Aufgabe');
+		const inputDuration = screen.getByLabelText('Dauer in Minuten');
+		const button = screen.getByRole('button', {name: /speichern/i});
+		await userEvent.type(inputTask, task);
+		await userEvent.type(inputDuration, duration);
+		await userEvent.click(button);
+		expect(onSubmit).toBeCalled;
 	});
 });

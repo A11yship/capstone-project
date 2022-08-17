@@ -7,8 +7,8 @@ export default function Form() {
 
 	function handleSubmit(event) {
 		event.preventDefault();
-		const name = event.target.task.value.trim();
-		const duration = Number.parseInt(event.target.duration.value, 10);
+		const name = event.target.elements.task.value.trim();
+		const duration = Number.parseInt(event.target.elements.duration.value, 10);
 		addTask(name, duration);
 		event.target.reset();
 	}
