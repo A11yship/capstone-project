@@ -14,7 +14,7 @@ describe('Form component', () => {
 		const form = screen.getByRole('form');
 		expect(form).toBeInTheDocument();
 	});
-	it('should be clickable', async () => {
+	it('should have a clickable submit-button', async () => {
 		const handleClick = jest.fn();
 		render(<Form onSubmit={handleClick} />);
 		const button = screen.getByText(`Speichern`);
