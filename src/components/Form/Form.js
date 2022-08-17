@@ -14,7 +14,7 @@ export default function Form() {
 	}
 
 	return (
-		<StyledForm onSubmit={handleSubmit}>
+		<StyledForm onSubmit={handleSubmit} name="task">
 			<label htmlFor="task">Aufgabe</label>
 			<input type="text" name="task" id="task" required placeholder="Neue Aufgabe" />
 			<label htmlFor="duration">Dauer in Minuten</label>

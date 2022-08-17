@@ -11,7 +11,7 @@ import Form from './form';
 describe('Form component', () => {
 	it('should be displayed', () => {
 		render(<Form />);
-		const form = screen.getByLabelText('Aufgabe');
+		const form = screen.getByRole('form');
 		expect(form).toBeInTheDocument();
 	});
 	it('should be clickable', async () => {
