@@ -4,6 +4,7 @@
 
 import '@testing-library/jest-dom';
 import {render, screen} from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 
 import Form from './form';
 
@@ -12,5 +13,12 @@ describe('Form component', () => {
 		render(<Form />);
 		const form = screen.getByLabelText('Aufgabe');
 		expect(form).toBeInTheDocument();
+	});
+	it('should be clickable', async () => {
+		const handleClick = jest.fn();
+		render(<Form onSubmit={handleClick} />);
+		const button = screen.getByText(`Speichern`);
+		await userEvent.click(button);
+		expect(handleClick).toBeCalled;
 	});
 });
