@@ -7,7 +7,7 @@ const useStore = create(set => ({
 		{id: nanoid(), name: 'Post sortieren', time: 2},
 	],
 	addTask(name, time) {
-		set(({tasks}) => ({tasks: [{id: nanoid(), name, time}, ...tasks]}));
+		set(({tasks}) => ({...tasks, tasks: [{id: nanoid(), name, time}]}));
 	},
 }));
 
