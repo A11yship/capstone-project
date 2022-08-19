@@ -22,8 +22,8 @@ export default function HomePage() {
 				<CurrentTask />
 				<h2>Aufgabenliste</h2>
 				<StyledList role="list">
-					{tasks.map(task => (
-						<StyledListItem key={task.id}>
+					{tasks.map((task, index) => (
+						<StyledListItem key={task.id} current={index === 0}>
 							<span>{task.name}</span>
 							<span>{task.time}min</span>
 						</StyledListItem>
