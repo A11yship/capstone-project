@@ -1,5 +1,6 @@
 import Head from 'next/head';
 
+import CurrentTask from '../components/CurrentTask/CurrentTask';
 import Form from '../components/Form/Form';
 import StyledList from '../components/List/StyledList';
 import StyledListItem from '../components/ListItem/StyledListItem';
@@ -16,10 +17,7 @@ export default function HomePage() {
 			</Head>
 			<h1>Meine Aufgaben App</h1>
 			<h2>Aktuelle Aufgabe</h2>
-			<div>
-				<p>{tasks[0].name}</p>
-				<p>{tasks[0].time} min</p>
-			</div>
+			<CurrentTask />
 			<h2>Aufgabenliste</h2>
 			<StyledList role="list">
 				{tasks.map(task => (
