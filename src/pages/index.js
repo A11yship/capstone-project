@@ -1,5 +1,6 @@
 import Head from 'next/head';
 
+import Form from '../components/Form/Form';
 import StyledList from '../components/List/StyledList';
 import StyledListItem from '../components/ListItem/StyledListItem';
 import useStore from '../hooks/useStore';
@@ -23,6 +24,8 @@ export default function HomePage() {
 					</StyledListItem>
 				))}
 			</StyledList>
+			<h2>Aufgabe hinzufügen</h2>
+			<Form />
 		</>
 	);
 }

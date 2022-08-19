@@ -6,17 +6,8 @@ const useStore = create(set => ({
 		{id: nanoid(), name: 'Abwaschen', time: 15},
 		{id: nanoid(), name: 'Post sortieren', time: 2},
 	],
-
-	//Beispielcode
-	counter: 0,
-	setCounter(counter) {
-		set({counter});
-	},
-	decrementCounter(step = 1) {
-		set(({counter}) => ({counter: counter - step}));
-	},
-	incrementCounter(step = 1) {
-		set(({counter}) => ({counter: counter + step}));
+	addTask(name, time) {
+		set(({tasks}) => ({tasks: [...tasks, {id: nanoid(), name, time}]}));
 	},
 }));
 
