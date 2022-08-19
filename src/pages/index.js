@@ -15,6 +15,11 @@ export default function HomePage() {
 				<meta key="description" name="description" content="This is my project" />
 			</Head>
 			<h1>Meine Aufgaben App</h1>
+			<h2>Aktuelle Aufgabe</h2>
+			<div>
+				<p>{tasks[0].name}</p>
+				<p>{tasks[0].time} min</p>
+			</div>
 			<h2>Aufgabenliste</h2>
 			<StyledList role="list">
 				{tasks.map(task => (
