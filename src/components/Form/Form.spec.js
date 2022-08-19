@@ -51,7 +51,7 @@ describe('Form component', () => {
 		expect(addTask).toBeCalledTimes(1);
 		expect(addTask).toBeCalledWith(task, duration);
 	});
-	it('should not akzept whitespaces for the task', async () => {
+	it('should not accept whitespaces for the task', async () => {
 		const store = renderHook(() => useStore());
 		const {addTask} = store.result.current;
 
@@ -73,7 +73,7 @@ describe('Form component', () => {
 
 		expect(addTask).not.toHaveBeenCalled();
 	});
-	it('should not akzept a string for the duration', async () => {
+	it('should not accept a string for the duration', async () => {
 		const store = renderHook(() => useStore());
 		const {addTask} = store.result.current;
 
@@ -95,7 +95,7 @@ describe('Form component', () => {
 
 		expect(addTask).not.toHaveBeenCalled();
 	});
-	it('should not akzept negative duration', async () => {
+	it('should not accept negative duration', async () => {
 		const store = renderHook(() => useStore());
 		const {addTask} = store.result.current;
 
