@@ -5,6 +5,8 @@ export const GlobalStyle = createGlobalStyle`
 	*::before,
 	*::after {
 		box-sizing: border-box;
+		margin: 0;
+		padding: 0;
 	}
 
 	html {
@@ -12,7 +14,6 @@ export const GlobalStyle = createGlobalStyle`
 	}
 
 	body {
-		margin: 0;
 		font-size: 1rem;
 	}
 `;
