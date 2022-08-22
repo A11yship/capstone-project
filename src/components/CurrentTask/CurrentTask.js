@@ -11,11 +11,19 @@ export default function CurrentTask() {
 		deleteTask(tasks[0].id);
 	}
 
-	return (
-		<StyledCurrentTask>
-			<p>{tasks[0].name}</p>
-			<p>{tasks[0].time} min</p>
-			<Button onClick={handleClick}>done</Button>
-		</StyledCurrentTask>
-	);
+	if (tasks.length) {
+		return (
+			<StyledCurrentTask>
+				<p>{tasks[0].name}</p>
+				<p>{tasks[0].time} min</p>
+				<Button onClick={handleClick}>done</Button>
+			</StyledCurrentTask>
+		);
+	} else {
+		return (
+			<StyledCurrentTask>
+				<p>Keine Aufgabe</p>
+			</StyledCurrentTask>
+		);
+	}
 }
