@@ -7,19 +7,17 @@ export default function CurrentTask() {
 	const tasks = useStore(state => state.tasks);
 	const completeTask = useStore(state => state.deleteTask);
 
-	if (tasks.length) {
-		return (
-			<StyledCurrentTask>
-				<p>{tasks[0].name}</p>
-				<p>{tasks[0].time} min</p>
-				<Button onClick={() => completeTask(tasks[0].id)}>done</Button>
-			</StyledCurrentTask>
-		);
-	} else {
-		return (
-			<StyledCurrentTask>
+	return (
+		<StyledCurrentTask>
+			{tasks.length ? (
+				<>
+					<p>{tasks[0].name}</p>
+					<p>{tasks[0].time} min</p>
+					<Button onClick={() => completeTask(tasks[0].id)}>done</Button>
+				</>
+			) : (
 				<p>Keine Aufgabe</p>
-			</StyledCurrentTask>
-		);
-	}
+			)}
+		</StyledCurrentTask>
+	);
 }
