@@ -5,8 +5,10 @@ import StyledCurrentTask from './StyledCurrentTask';
 
 export default function CurrentTask() {
 	const tasks = useStore(state => state.tasks);
+	const deleteTask = useStore(state => state.deleteTask);
+
 	function handleClick() {
-		console.log('done');
+		deleteTask(tasks[0].id);
 	}
 
 	return (
