@@ -9,7 +9,7 @@ import userEvent from '@testing-library/user-event';
 import Button from './Button';
 
 describe('Button component', () => {
-	it('shold render children', () => {
+	it('should render children', () => {
 		const text = 'Click me';
 		render(<Button>{text}</Button>);
 		const button = screen.getByText(text);
