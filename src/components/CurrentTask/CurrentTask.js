@@ -9,8 +9,12 @@ export default function CurrentTask() {
 	const tasks = useStore(state => state.tasks);
 	const completeTask = useStore(state => state.deleteTask);
 
-	const [time, setTime] = useState(tasks[0].time * 60);
+	const [time, setTime] = useState(0);
 	const [timerIsRunnig, setTimerIsRunnig] = useState(false);
+
+	useEffect(() => {
+		setTime(tasks.length ? tasks[0].time * 60 : 0);
+	}, [tasks]);
 
 	useEffect(() => {
 		let interval;
