@@ -1,4 +1,4 @@
-import {useEffect, useState} from 'react';
+import {useEffect, useRef, useState} from 'react';
 
 import useStore from '../../hooks/useStore';
 import Button from '../Button/Button';
@@ -13,16 +13,18 @@ export default function CurrentTask() {
 	const [sec, setSec] = useState(0);
 	//const [time, setTime] = useState(tasks[0].time);
 	const [timerIsRunnig, setTimerIsRunnig] = useState(false);
+	let interval = useRef();
 
 	// useEffect(() => {
 	// 	setTime(tasks[0].time * 60);
 	// }, [tasks]);
 
 	useEffect(() => {
-		let interval;
+		//let interval;
+		let id;
 		let time = tasks[0].time * 60 - 1;
 		if (timerIsRunnig) {
-			interval = setInterval(() => {
+			id = setInterval(() => {
 				if (time >= 0) {
 					setMin(Math.floor(time / 60));
 					setSec(time % 60);
@@ -30,9 +32,11 @@ export default function CurrentTask() {
 					time = time - 1;
 				}
 			}, 1000);
-		} else {
-			return clearInterval(interval);
 		}
+		interval.current = id;
+		// } else {
+		//return clearInterval(interval.current);
+		// }
 	}, [timerIsRunnig, tasks]);
 
 	function handleClick() {
@@ -41,7 +45,7 @@ export default function CurrentTask() {
 			//timer(tasks[0].time);
 			console.log('start', timerIsRunnig);
 		} else {
-			//clearInterval(interval);
+			clearInterval(interval.current);
 			console.log('stop', timerIsRunnig);
 		}
 	}
