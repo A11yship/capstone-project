@@ -13,6 +13,7 @@ export default function CurrentTask() {
 				<>
 					<p>{tasks[0].name}</p>
 					<p>{tasks[0].time} min</p>
+					<Button onClick={() => console.log('timer')}>Start</Button>
 					<Button onClick={() => completeTask(tasks[0].id)}>done</Button>
 				</>
 			) : (
