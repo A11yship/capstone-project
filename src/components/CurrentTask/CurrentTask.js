@@ -20,25 +20,31 @@ export default function CurrentTask() {
 		let interval;
 		if (timerIsRunnig) {
 			interval = setInterval(() => {
-				if (time >= 0) {
+				if (time > 0) {
 					setTime(time => time - 1);
 				}
 			}, 1000);
 		}
 		return () => clearInterval(interval);
-	}, [timerIsRunnig]);
+	}, [timerIsRunnig, time]);
 
 	return (
 		<StyledCurrentTask>
 			{tasks.length ? (
 				<>
 					<p>{tasks[0].name}</p>
-					<p>
-						{Math.floor(time / 60)}:{String(time % 60).padStart(2, '0')} min
-					</p>
-					<Button onClick={() => setTimerIsRunnig(!timerIsRunnig)}>
-						{timerIsRunnig ? 'Pause' : 'Start'}
-					</Button>
+					{time ? (
+						<>
+							<p>
+								{Math.floor(time / 60)}:{String(time % 60).padStart(2, '0')} min
+							</p>
+							<Button onClick={() => setTimerIsRunnig(!timerIsRunnig)}>
+								{timerIsRunnig ? 'Pause' : 'Start'}
+							</Button>
+						</>
+					) : (
+						<p className="over">Fertig!</p>
+					)}
 					<Button onClick={() => completeTask(tasks[0].id)}>done</Button>
 				</>
 			) : (
