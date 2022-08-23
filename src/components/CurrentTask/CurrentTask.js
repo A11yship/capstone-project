@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 
 import useStore from '../../hooks/useStore';
 import Button from '../Button/Button';
@@ -11,20 +11,39 @@ export default function CurrentTask() {
 
 	const [min, setMin] = useState(tasks[0].time);
 	const [sec, setSec] = useState(0);
+	//const [time, setTime] = useState(tasks[0].time);
+	const [timerIsRunnig, setTimerIsRunnig] = useState(false);
 
-	function timer(time) {
-		time = time * 60;
-		setInterval(() => {
-			if (time > 0) {
-				setMin(Math.floor(time / 60));
-				setSec(time % 60);
-				time = time - 1;
-			}
-		}, 1000);
-	}
+	// useEffect(() => {
+	// 	setTime(tasks[0].time * 60);
+	// }, [tasks]);
+
+	useEffect(() => {
+		let interval;
+		let time = tasks[0].time * 60 - 1;
+		if (timerIsRunnig) {
+			interval = setInterval(() => {
+				if (time >= 0) {
+					setMin(Math.floor(time / 60));
+					setSec(time % 60);
+					//setTime(time - 1);
+					time = time - 1;
+				}
+			}, 1000);
+		} else {
+			return clearInterval(interval);
+		}
+	}, [timerIsRunnig, tasks]);
 
 	function handleClick() {
-		timer(tasks[0].time);
+		setTimerIsRunnig(!timerIsRunnig);
+		if (timerIsRunnig) {
+			//timer(tasks[0].time);
+			console.log('start', timerIsRunnig);
+		} else {
+			//clearInterval(interval);
+			console.log('stop', timerIsRunnig);
+		}
 	}
 
 	return (
@@ -35,7 +54,7 @@ export default function CurrentTask() {
 					<p>
 						{min}:{String(sec).padStart(2, '0')} min
 					</p>
-					<Button onClick={handleClick}>Start</Button>
+					<Button onClick={handleClick}>{timerIsRunnig ? 'Pause' : 'Start'}</Button>
 					<Button onClick={() => completeTask(tasks[0].id)}>done</Button>
 				</>
 			) : (
