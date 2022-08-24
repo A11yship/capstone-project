@@ -44,7 +44,7 @@ export default function CurrentTask() {
 							<p>
 								{Math.floor(time / 60)}:{String(time % 60).padStart(2, '0')} min
 							</p>
-							<Clock>
+							<Clock role="img" alt="analoge Darstellung des Timers">
 								<Time
 									style={{
 										background: `conic-gradient(red ${time * 0.1}deg, blue 0 ${
