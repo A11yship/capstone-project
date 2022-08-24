@@ -29,6 +29,11 @@ export default function CurrentTask() {
 		return () => clearInterval(interval);
 	}, [timerIsRunnig, time]);
 
+	function handleDone() {
+		completeTask(tasks[0].id);
+		setTimerIsRunnig(false);
+	}
+
 	return (
 		<StyledCurrentTask>
 			{tasks.length ? (
@@ -55,7 +60,7 @@ export default function CurrentTask() {
 					) : (
 						<p className="over">Fertig!</p>
 					)}
-					<Button onClick={() => completeTask(tasks[0].id)}>done</Button>
+					<Button onClick={handleDone}>done</Button>
 				</>
 			) : (
 				<p>Keine Aufgabe</p>
