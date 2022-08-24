@@ -12,6 +12,10 @@ const StyledCurrentTask = styled.div`
 		padding: 5px;
 		font-size: 1.3rem;
 		font-weight: bold;
+		&.over {
+			color: green;
+			font-size: 1.5rem;
+		}
 	}
 `;
 
