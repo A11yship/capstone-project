@@ -1,6 +1,7 @@
 import {useEffect, useState} from 'react';
 
 import useStore from '../../hooks/useStore';
+import {Clock, Time} from '../AnalogTimer/StyledAnalogtimer';
 import Button from '../Button/Button';
 
 import StyledCurrentTask from './StyledCurrentTask';
@@ -38,6 +39,15 @@ export default function CurrentTask() {
 							<p>
 								{Math.floor(time / 60)}:{String(time % 60).padStart(2, '0')} min
 							</p>
+							<Clock>
+								<Time
+									style={{
+										background: `conic-gradient(red ${time * 0.1}deg, blue 0 ${
+											tasks[0].time * 6
+										}deg, transparent ${tasks[0].time * 6}deg)`,
+									}}
+								></Time>
+							</Clock>
 							<Button onClick={() => setTimerIsRunnig(!timerIsRunnig)}>
 								{timerIsRunnig ? 'Pause' : 'Start'}
 							</Button>
