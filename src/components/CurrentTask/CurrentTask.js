@@ -1,9 +1,10 @@
 import {useEffect, useState} from 'react';
 
 import useStore from '../../hooks/useStore';
+import {Clock, Time} from '../AnalogTimer/StyledAnalogtimer';
 import Button from '../Button/Button';
 
-import StyledCurrentTask from './StyledCurrentTask';
+import {StyledCurrentTask, StyledSpan} from './StyledCurrentTask';
 
 export default function CurrentTask() {
 	const tasks = useStore(state => state.tasks);
@@ -28,27 +29,41 @@ export default function CurrentTask() {
 		return () => clearInterval(interval);
 	}, [timerIsRunnig, time]);
 
+	function handleDone() {
+		completeTask(tasks[0].id);
+		setTimerIsRunnig(false);
+	}
+
 	return (
 		<StyledCurrentTask>
 			{tasks.length ? (
 				<>
-					<p>{tasks[0].name}</p>
+					<StyledSpan>{tasks[0].name}</StyledSpan>
 					{time ? (
 						<>
-							<p>
+							<StyledSpan>
 								{Math.floor(time / 60)}:{String(time % 60).padStart(2, '0')} min
-							</p>
+							</StyledSpan>
+							<Clock role="img" alt="analoge Darstellung des Timers">
+								<Time
+									style={{
+										background: `conic-gradient(red ${time * 0.1}deg, blue 0 ${
+											tasks[0].time * 6
+										}deg, transparent ${tasks[0].time * 6}deg)`,
+									}}
+								></Time>
+							</Clock>
 							<Button onClick={() => setTimerIsRunnig(!timerIsRunnig)}>
 								{timerIsRunnig ? 'Pause' : 'Start'}
 							</Button>
 						</>
 					) : (
-						<p className="over">Fertig!</p>
+						<StyledSpan over>Fertig!</StyledSpan>
 					)}
-					<Button onClick={() => completeTask(tasks[0].id)}>done</Button>
+					<Button onClick={handleDone}>done</Button>
 				</>
 			) : (
-				<p>Keine Aufgabe</p>
+				<StyledSpan>Keine Aufgabe</StyledSpan>
 			)}
 		</StyledCurrentTask>
 	);

@@ -7,16 +7,13 @@ const StyledCurrentTask = styled.div`
 	width: fit-content;
 	border: 1px solid black;
 	border-radius: 5px;
-
-	& p {
-		padding: 5px;
-		font-size: 1.3rem;
-		font-weight: bold;
-		&.over {
-			color: green;
-			font-size: 1.5rem;
-		}
-	}
 `;
 
-export default StyledCurrentTask;
+const StyledSpan = styled.span`
+	padding: 5px;
+	color: ${({over}) => (over ? 'green' : 'black')};
+	font-size: ${({over}) => (over ? '1.7rem' : '1.3rem')};
+	font-weight: bold;
+`;
+
+export {StyledCurrentTask, StyledSpan};
