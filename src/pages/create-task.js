@@ -1,15 +1,13 @@
 import Form from '../components/Form/Form';
-import Navbar from '../components/Navbar/Navbar';
-import StyledMain from '../components/StyledMain';
+import Layout from '../components/Layout';
 
 export default function CreateTask() {
 	return (
 		<>
-			<StyledMain>
+			<Layout>
 				<h1>Aufgabe hinzufügen</h1>
 				<Form />
-			</StyledMain>
-			<Navbar />
+			</Layout>
 		</>
 	);
 }
