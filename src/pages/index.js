@@ -3,6 +3,7 @@ import Head from 'next/head';
 import CurrentTask from '../components/CurrentTask/CurrentTask';
 import StyledList from '../components/List/StyledList';
 import StyledListItem from '../components/ListItem/StyledListItem';
+import Navbar from '../components/Navbar/Navbar';
 import StyledMain from '../components/StyledMain';
 import useStore from '../hooks/useStore';
 
@@ -29,6 +30,7 @@ export default function HomePage() {
 					))}
 				</StyledList>
 			</StyledMain>
+			<Navbar />
 		</>
 	);
 }
