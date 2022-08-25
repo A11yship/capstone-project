@@ -1,7 +1,6 @@
 import Head from 'next/head';
 
 import CurrentTask from '../components/CurrentTask/CurrentTask';
-import Form from '../components/Form/Form';
 import StyledList from '../components/List/StyledList';
 import StyledListItem from '../components/ListItem/StyledListItem';
 import StyledMain from '../components/StyledMain';
@@ -29,8 +28,6 @@ export default function HomePage() {
 						</StyledListItem>
 					))}
 				</StyledList>
-				<h2>Aufgabe hinzufügen</h2>
-				<Form />
 			</StyledMain>
 		</>
 	);
