@@ -4,7 +4,7 @@ import useStore from '../../hooks/useStore';
 import {Clock, Time} from '../AnalogTimer/StyledAnalogtimer';
 import Button from '../Button/Button';
 
-import StyledCurrentTask from './StyledCurrentTask';
+import {StyledCurrentTask, StyledSpan} from './StyledCurrentTask';
 
 export default function CurrentTask() {
 	const tasks = useStore(state => state.tasks);
@@ -38,12 +38,12 @@ export default function CurrentTask() {
 		<StyledCurrentTask>
 			{tasks.length ? (
 				<>
-					<p>{tasks[0].name}</p>
+					<StyledSpan>{tasks[0].name}</StyledSpan>
 					{time ? (
 						<>
-							<p>
+							<StyledSpan>
 								{Math.floor(time / 60)}:{String(time % 60).padStart(2, '0')} min
-							</p>
+							</StyledSpan>
 							<Clock role="img" alt="analoge Darstellung des Timers">
 								<Time
 									style={{
@@ -58,12 +58,12 @@ export default function CurrentTask() {
 							</Button>
 						</>
 					) : (
-						<p className="over">Fertig!</p>
+						<StyledSpan over>Fertig!</StyledSpan>
 					)}
 					<Button onClick={handleDone}>done</Button>
 				</>
 			) : (
-				<p>Keine Aufgabe</p>
+				<StyledSpan>Keine Aufgabe</StyledSpan>
 			)}
 		</StyledCurrentTask>
 	);
