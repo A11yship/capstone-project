@@ -1,5 +1,6 @@
 import Head from 'next/head';
 
+import Button from '../components/Button/Button';
 import CurrentTask from '../components/CurrentTask/CurrentTask';
 import Layout from '../components/Layout';
 import StyledList from '../components/List/StyledList';
@@ -19,7 +20,9 @@ export default function HomePage() {
 				<h1>Meine Aufgaben App</h1>
 				<h2>Aktuelle Aufgabe</h2>
 				<CurrentTask />
-				<h2>Aufgabenliste</h2>
+				<h2>Aktuelle Aufgaben</h2>
+				<Button onClick={() => console.log('NeueListe')}>Neue Liste</Button>
+				<h2>Alle Aufgaben</h2>
 				<StyledList role="list">
 					{tasks.map((task, index) => (
 						<StyledListItem key={task.id} current={index === 0}>
