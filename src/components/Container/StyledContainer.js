@@ -6,6 +6,8 @@ const StyledContainer = styled.div`
 	width: auto;
 	height: calc(100vh - 50px);
 	margin: 5px;
+	padding: 5px;
+	gap: 5px;
 	border: 1px solid black;
 `;
 

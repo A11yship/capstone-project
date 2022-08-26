@@ -1,3 +1,4 @@
+import StyledColumn from '../components/Column/StyledColumn';
 import StyledContainer from '../components/Container/StyledContainer';
 
 export default function CreateList() {
@@ -8,7 +9,7 @@ export default function CreateList() {
 			<h1>Wähle aktuelle Aufgaben </h1>
 			<StyledContainer>
 				{columns.map(column => {
-					return <div key={column}>{column}</div>;
+					return <StyledColumn key={column}>{column}</StyledColumn>;
 				})}
 			</StyledContainer>
 		</>
