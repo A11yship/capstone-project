@@ -1,5 +1,6 @@
 import StyledColumn from '../components/Column/StyledColumn';
 import StyledContainer from '../components/Container/StyledContainer';
+import StyledTask from '../components/Task/StyledTask';
 import useStore from '../hooks/useStore';
 
 export default function CreateList() {
@@ -15,7 +16,11 @@ export default function CreateList() {
 						<StyledColumn key={column}>
 							{column}{' '}
 							{tasks.map(task => {
-								return <div key={task.id}>{task.name}</div>;
+								return (
+									<StyledTask key={task.id}>
+										{task.name}, {task.time} min
+									</StyledTask>
+								);
 							})}
 						</StyledColumn>
 					);
