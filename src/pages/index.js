@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import {useRouter} from 'next/router';
 
 import Button from '../components/Button/Button';
 import CurrentTask from '../components/CurrentTask/CurrentTask';
@@ -9,6 +10,7 @@ import useStore from '../hooks/useStore';
 
 export default function HomePage() {
 	const tasks = useStore(state => state.tasks);
+	const router = useRouter();
 
 	return (
 		<>
@@ -21,7 +23,7 @@ export default function HomePage() {
 				<h2>Aktuelle Aufgabe</h2>
 				<CurrentTask />
 				<h2>Aktuelle Aufgaben</h2>
-				<Button onClick={() => console.log('NeueListe')}>Neue Liste</Button>
+				<Button onClick={() => router.push('/create-list')}>Neue Liste</Button>
 				<h2>Alle Aufgaben</h2>
 				<StyledList role="list">
 					{tasks.map((task, index) => (
