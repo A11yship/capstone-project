@@ -1,10 +1,9 @@
 import Head from 'next/head';
 
 import CurrentTask from '../components/CurrentTask/CurrentTask';
-import Form from '../components/Form/Form';
+import Layout from '../components/Layout';
 import StyledList from '../components/List/StyledList';
 import StyledListItem from '../components/ListItem/StyledListItem';
-import StyledMain from '../components/StyledMain';
 import useStore from '../hooks/useStore';
 
 export default function HomePage() {
@@ -16,7 +15,7 @@ export default function HomePage() {
 				<title key="title">My Project</title>
 				<meta key="description" name="description" content="This is my project" />
 			</Head>
-			<StyledMain>
+			<Layout>
 				<h1>Meine Aufgaben App</h1>
 				<h2>Aktuelle Aufgabe</h2>
 				<CurrentTask />
@@ -29,9 +28,7 @@ export default function HomePage() {
 						</StyledListItem>
 					))}
 				</StyledList>
-				<h2>Aufgabe hinzufügen</h2>
-				<Form />
-			</StyledMain>
+			</Layout>
 		</>
 	);
 }

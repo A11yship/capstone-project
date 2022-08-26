@@ -10,6 +10,14 @@ import useStore from '../../hooks/useStore';
 
 import Form from './Form';
 
+jest.mock('next/router', () => ({
+	useRouter() {
+		return {
+			push: jest.fn(),
+		};
+	},
+}));
+
 describe('Form component', () => {
 	it('should be displayed', () => {
 		render(<Form />);

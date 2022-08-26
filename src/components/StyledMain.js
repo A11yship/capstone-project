@@ -5,6 +5,7 @@ const StyledMain = styled.main`
 	flex-direction: column;
 	align-items: center;
 	gap: 20px;
+	height: calc(100vh - 30px);
 `;
 
 export default StyledMain;

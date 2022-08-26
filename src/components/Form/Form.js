@@ -1,9 +1,12 @@
+import {useRouter} from 'next/router';
+
 import useStore from '../../hooks/useStore';
 
 import StyledForm from './StyledForm';
 
 export default function Form() {
 	const addTask = useStore(state => state.addTask);
+	const router = useRouter();
 
 	function handleSubmit(event) {
 		event.preventDefault();
@@ -12,6 +15,7 @@ export default function Form() {
 		const duration = Number.parseInt(form.elements.duration.value, 10);
 		addTask(taskName, duration);
 		form.reset();
+		router.push('/');
 	}
 
 	return (
