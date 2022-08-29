@@ -1,9 +1,8 @@
 import {DragDropContext} from '@hello-pangea/dnd';
 import {useState} from 'react';
 
-import StyledColumn from '../components/Column/StyledColumn';
+import Column from '../components/Column/Column';
 import StyledContainer from '../components/Container/StyledContainer';
-import StyledTask from '../components/Task/StyledTask';
 import useStore from '../hooks/useStore';
 
 export default function CreateList() {
@@ -22,28 +21,13 @@ export default function CreateList() {
 			<h1>Wähle aktuelle Aufgaben </h1>
 			<StyledContainer>
 				<DragDropContext onDragEnd={handleOnDragEnd}>
-					{columns.map(column => {
-						return (
-							<StyledColumn key={column}>
-								<h2>{column}</h2>
-								{column === 'Nicht gewählte Aufgaben'
-									? unselectedTasks.map(task => {
-											return (
-												<StyledTask key={task.id}>
-													{task.name}, {task.time} min
-												</StyledTask>
-											);
-									  })
-									: selectedTasks.map(task => {
-											return (
-												<StyledTask key={task.id}>
-													{task.name}, {task.time} min
-												</StyledTask>
-											);
-									  })}
-							</StyledColumn>
-						);
-					})}
+					{columns.map(column =>
+						column === 'Nicht gewählte Aufgaben' ? (
+							<Column key={column} column={column} tasks={unselectedTasks} />
+						) : (
+							<Column key={column} column={column} tasks={selectedTasks} />
+						)
+					)}
 				</DragDropContext>
 			</StyledContainer>
 		</>
