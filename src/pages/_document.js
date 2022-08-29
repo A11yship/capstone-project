@@ -1,4 +1,3 @@
-import {resetServerContext} from '@hello-pangea/dnd';
 import Document from 'next/document';
 import {ServerStyleSheet} from 'styled-components';
 
@@ -14,7 +13,6 @@ export default class MyDocument extends Document {
 				});
 
 			const initialProps = await Document.getInitialProps(ctx);
-			resetServerContext();
 			return {
 				...initialProps,
 				styles: [initialProps.styles, sheet.getStyleElement()],
