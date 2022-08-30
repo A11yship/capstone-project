@@ -13,6 +13,10 @@ const useStore = create(set => ({
 	deleteTask(currentTaskId) {
 		set(({tasks}) => ({tasks: tasks.filter(task => task.id !== currentTaskId)}));
 	},
+	currentTasks: [],
+	updateCurrentTasks(taskArray) {
+		set(() => ({currentTasks: [...taskArray]}));
+	},
 }));
 
 export default useStore;

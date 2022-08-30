@@ -16,11 +16,20 @@ const DragDropContainer = dynamic(
 export default function CreateList() {
 	const columns = ['Nicht gewählte Aufgaben', 'Ausgewählte Aufgaben'];
 	const tasks = useStore(state => state.tasks);
-	const [unselectedTasks, setUnselectedTasks] = useState([...tasks]);
-	const [selectedTasks, setSelectedTasks] = useState([]);
+	const currentTasks = useStore(state => state.currentTasks);
+	const updateCurrentTasks = useStore(state => state.updateCurrentTasks);
+	const [unselectedTasks, setUnselectedTasks] = useState(
+		tasks.filter(task => !currentTasks.some(currentTask => currentTask.id === task.id))
+	);
+	const [selectedTasks, setSelectedTasks] = useState([...currentTasks]);
 	const router = useRouter();
 
 	function handleCancel() {
+		router.push('/');
+	}
+
+	function handleSubmit() {
+		updateCurrentTasks(selectedTasks);
 		router.push('/');
 	}
 
@@ -37,6 +46,7 @@ export default function CreateList() {
 				/>
 			</StyledContainer>
 			<Button onClick={handleCancel}>Abbrechen</Button>
+			<Button onClick={handleSubmit}>Speichern</Button>
 		</>
 	);
 }
