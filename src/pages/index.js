@@ -10,6 +10,7 @@ import useStore from '../hooks/useStore';
 
 export default function HomePage() {
 	const tasks = useStore(state => state.tasks);
+	const currentTasks = useStore(state => state.currentTasks);
 	const router = useRouter();
 
 	return (
@@ -24,10 +25,18 @@ export default function HomePage() {
 				<CurrentTask />
 				<h2>Aktuelle Aufgaben</h2>
 				<Button onClick={() => router.push('/create-list')}>Neue Liste</Button>
+				<StyledList role="list">
+					{currentTasks.map((task, index) => (
+						<StyledListItem key={task.id} current={index === 0}>
+							<span>{task.name}</span>
+							<span>{task.time}min</span>
+						</StyledListItem>
+					))}
+				</StyledList>
 				<h2>Alle Aufgaben</h2>
 				<StyledList role="list">
-					{tasks.map((task, index) => (
-						<StyledListItem key={task.id} current={index === 0}>
+					{tasks.map(task => (
+						<StyledListItem key={task.id}>
 							<span>{task.name}</span>
 							<span>{task.time}min</span>
 						</StyledListItem>
