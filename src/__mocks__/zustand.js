@@ -20,6 +20,7 @@ const create = createState => {
 	const initialState = store.getState();
 
 	initialState.tasks = initialTasks;
+	initialState.currentTasks = initialTasks;
 	initialState.addTask = jest.fn();
 
 	storeResetFns.add(() => store.setState(initialState, true));
