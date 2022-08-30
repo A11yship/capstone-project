@@ -1,6 +1,8 @@
 import dynamic from 'next/dynamic';
+import {useRouter} from 'next/router';
 import {useState} from 'react';
 
+import Button from '../components/Button/Button';
 import StyledContainer from '../components/Container/StyledContainer';
 import useStore from '../hooks/useStore';
 
@@ -16,6 +18,11 @@ export default function CreateList() {
 	const tasks = useStore(state => state.tasks);
 	const [unselectedTasks, setUnselectedTasks] = useState([...tasks]);
 	const [selectedTasks, setSelectedTasks] = useState([]);
+	const router = useRouter();
+
+	function handleCancel() {
+		router.push('/');
+	}
 
 	return (
 		<>
@@ -29,6 +36,7 @@ export default function CreateList() {
 					setSelectedTasks={setSelectedTasks}
 				/>
 			</StyledContainer>
+			<Button onClick={handleCancel}>Abbrechen</Button>
 		</>
 	);
 }

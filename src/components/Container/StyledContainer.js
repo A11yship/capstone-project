@@ -3,7 +3,6 @@ import styled from 'styled-components';
 const StyledContainer = styled.div`
 	display: flex;
 	width: auto;
-	height: calc(100vh - 50px);
 	margin: 5px;
 	padding: 5px;
 	gap: 5px;
