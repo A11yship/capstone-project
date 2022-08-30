@@ -1,14 +1,16 @@
 import {DragDropContext} from '@hello-pangea/dnd';
-import {useState} from 'react';
 
 import useStore from '../../hooks/useStore';
 import Column from '../Column/Column';
 
-export default function DragDropContainer() {
-	const columns = ['Nicht gewählte Aufgaben', 'Ausgewählte Aufgaben'];
+export default function DragDropContainer({
+	columns,
+	unselectedTasks,
+	selectedTasks,
+	setUnselectedTasks,
+	setSelectedTasks,
+}) {
 	const tasks = useStore(state => state.tasks);
-	const [unselectedTasks, setUnselectedTasks] = useState([...tasks]);
-	const [selectedTasks, setSelectedTasks] = useState([]);
 
 	function updateArrays(task, source, destination, sourceArray, destinationArray = sourceArray) {
 		sourceArray.splice(source.index, 1);
