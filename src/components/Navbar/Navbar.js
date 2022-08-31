@@ -5,6 +5,9 @@ import StyledNavbar from './StyledNavbar';
 export default function Navbar() {
 	return (
 		<StyledNavbar>
+			<Link href="/task-list">
+				<a>Aufgabenliste</a>
+			</Link>
 			<Link href="/">
 				<a>Startseite</a>
 			</Link>
