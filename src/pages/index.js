@@ -24,8 +24,9 @@ export default function HomePage() {
 				<CurrentTask />
 				<h2>Aktuelle Aufgaben</h2>
 				<Button onClick={() => router.push('/create-list')}>
-					{currentTasks.length === 0 ? 'Neue Liste' : 'Liste Editieren'}
+					{currentTasks.length === 0 ? 'Neue Liste' : 'Liste editieren'}
 				</Button>
+				<Button onClick={() => router.push('/generate-list')}>Liste generieren</Button>
 				<StyledList role="list">
 					{currentTasks.map((task, index) => (
 						<StyledListItem key={task.id} current={index === 0}>
