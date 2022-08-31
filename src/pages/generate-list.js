@@ -1,6 +1,10 @@
+import {useRouter} from 'next/router';
+
 import StyledForm from '../components/Form/StyledForm';
 
 export default function GenerateList() {
+	const router = useRouter();
+
 	return (
 		<>
 			<h1>Liste generieren</h1>
@@ -23,7 +27,9 @@ export default function GenerateList() {
 					min={1}
 					placeholder="5"
 				></input>
-				<button type="button">Abbrechen</button>
+				<button type="button" onClick={() => router.push('/')}>
+					Abbrechen
+				</button>
 				<button>Generieren</button>
 			</StyledForm>
 		</>
