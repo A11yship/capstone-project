@@ -7,15 +7,15 @@ import Button from '../Button/Button';
 import {StyledCurrentTask, StyledSpan} from './StyledCurrentTask';
 
 export default function CurrentTask() {
-	const tasks = useStore(state => state.tasks);
-	const completeTask = useStore(state => state.deleteTask);
+	const currentTasks = useStore(state => state.currentTasks);
+	const deleteFromCurrentTasks = useStore(state => state.deleteFromCurrentTasks);
 
 	const [time, setTime] = useState(0);
 	const [timerIsRunnig, setTimerIsRunnig] = useState(false);
 
 	useEffect(() => {
-		setTime(tasks.length ? tasks[0].time * 60 : 0);
-	}, [tasks]);
+		setTime(currentTasks.length ? currentTasks[0].time * 60 : 0);
+	}, [currentTasks]);
 
 	useEffect(() => {
 		let interval;
@@ -30,15 +30,15 @@ export default function CurrentTask() {
 	}, [timerIsRunnig, time]);
 
 	function handleDone() {
-		completeTask(tasks[0].id);
+		deleteFromCurrentTasks(currentTasks[0].id);
 		setTimerIsRunnig(false);
 	}
 
 	return (
 		<StyledCurrentTask>
-			{tasks.length ? (
+			{currentTasks.length ? (
 				<>
-					<StyledSpan>{tasks[0].name}</StyledSpan>
+					<StyledSpan>{currentTasks[0].name}</StyledSpan>
 					{time ? (
 						<>
 							<StyledSpan>
@@ -48,8 +48,8 @@ export default function CurrentTask() {
 								<Time
 									style={{
 										background: `conic-gradient(red ${time * 0.1}deg, blue 0 ${
-											tasks[0].time * 6
-										}deg, transparent ${tasks[0].time * 6}deg)`,
+											currentTasks[0].time * 6
+										}deg, transparent ${currentTasks[0].time * 6}deg)`,
 									}}
 								></Time>
 							</Clock>
@@ -63,7 +63,7 @@ export default function CurrentTask() {
 					<Button onClick={handleDone}>done</Button>
 				</>
 			) : (
-				<StyledSpan>Keine Aufgabe</StyledSpan>
+				<StyledSpan>Keine aktuellen Aufgabe</StyledSpan>
 			)}
 		</StyledCurrentTask>
 	);

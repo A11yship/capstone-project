@@ -19,6 +19,7 @@
     "toc": "npx markdown-toc@1 README.md -i"
   },
   "dependencies": {
+    "@hello-pangea/dnd": "^16.0.0",
     "axios": "0.27.2",
     "nanoid": "^3.3.4",
     "next": "12.2.4",
