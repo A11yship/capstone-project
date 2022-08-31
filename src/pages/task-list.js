@@ -1,3 +1,4 @@
+import Layout from '../components/Layout';
 import StyledList from '../components/List/StyledList';
 import StyledListItem from '../components/ListItem/StyledListItem';
 import useStore from '../hooks/useStore';
@@ -5,7 +6,7 @@ import useStore from '../hooks/useStore';
 export default function TaskList() {
 	const tasks = useStore(state => state.tasks);
 	return (
-		<>
+		<Layout>
 			<h1>Alle Aufgaben</h1>
 			<StyledList role="list">
 				{tasks.map(task => (
@@ -15,6 +16,6 @@ export default function TaskList() {
 					</StyledListItem>
 				))}
 			</StyledList>
-		</>
+		</Layout>
 	);
 }
