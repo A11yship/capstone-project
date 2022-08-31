@@ -9,7 +9,6 @@ import StyledListItem from '../components/ListItem/StyledListItem';
 import useStore from '../hooks/useStore';
 
 export default function HomePage() {
-	const tasks = useStore(state => state.tasks);
 	const currentTasks = useStore(state => state.currentTasks);
 	const router = useRouter();
 
@@ -30,15 +29,6 @@ export default function HomePage() {
 				<StyledList role="list">
 					{currentTasks.map((task, index) => (
 						<StyledListItem key={task.id} current={index === 0}>
-							<span>{task.name}</span>
-							<span>{task.time}min</span>
-						</StyledListItem>
-					))}
-				</StyledList>
-				<h2>Alle Aufgaben</h2>
-				<StyledList role="list">
-					{tasks.map(task => (
-						<StyledListItem key={task.id}>
 							<span>{task.name}</span>
 							<span>{task.time}min</span>
 						</StyledListItem>
