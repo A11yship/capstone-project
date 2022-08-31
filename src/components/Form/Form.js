@@ -15,7 +15,7 @@ export default function Form() {
 		const duration = Number.parseInt(form.elements.duration.value, 10);
 		addTask(taskName, duration);
 		form.reset();
-		router.push('/');
+		router.push('/task-list');
 	}
 
 	return (
