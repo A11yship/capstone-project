@@ -17,15 +17,19 @@ export default function GenerateList() {
 
 	function selectTasks(
 		orderedTasks,
-		upperIndex,
 		number,
 		totalDuration,
-		lowerIndex = upperIndex - 1,
+		upperIndex,
+		lowerIndex,
 		currentDuration = 0,
 		selectedTasks = [],
 		up = true
 	) {
 		const avarageDuration = totalDuration / number;
+		if (!upperIndex) {
+			upperIndex = orderedTasks.findIndex(task => task.time >= avarageDuration);
+			lowerIndex = upperIndex - 1;
+		}
 		if (
 			number === selectedTasks.length ||
 			currentDuration >= totalDuration ||
@@ -42,9 +46,9 @@ export default function GenerateList() {
 			upperIndex += 1;
 			return selectTasks(
 				orderedTasks,
-				upperIndex,
 				number,
 				totalDuration,
+				upperIndex,
 				lowerIndex,
 				currentDuration,
 				selectedTasks,
@@ -58,9 +62,9 @@ export default function GenerateList() {
 				up = !up;
 				return selectTasks(
 					orderedTasks,
-					upperIndex,
 					number,
 					totalDuration,
+					upperIndex,
 					lowerIndex,
 					currentDuration,
 					selectedTasks,
@@ -70,9 +74,9 @@ export default function GenerateList() {
 				up = !up;
 				return selectTasks(
 					orderedTasks,
-					upperIndex,
 					number,
 					totalDuration,
+					upperIndex,
 					lowerIndex,
 					currentDuration,
 					selectedTasks,
@@ -87,9 +91,9 @@ export default function GenerateList() {
 				up = !up;
 				return selectTasks(
 					orderedTasks,
-					upperIndex,
 					number,
 					totalDuration,
+					upperIndex,
 					lowerIndex,
 					currentDuration,
 					selectedTasks,
@@ -99,9 +103,9 @@ export default function GenerateList() {
 				up = !up;
 				return selectTasks(
 					orderedTasks,
-					upperIndex,
 					number,
 					totalDuration,
+					upperIndex,
 					lowerIndex,
 					currentDuration,
 					selectedTasks,
@@ -116,14 +120,12 @@ export default function GenerateList() {
 		const form = event.target;
 		const totalDuration = Number.parseInt(form.elements.totalDuration.value, 10);
 		const number = Number.parseInt(form.elements.numberOfTasks.value, 10);
-		const avarageDuration = totalDuration / number;
 		const shuffledTasks = [...tasks];
 		shuffle(shuffledTasks);
 		const orderedTasks = shuffledTasks.sort(
 			(firstTask, secondTask) => firstTask.time - secondTask.time
 		);
-		const index = orderedTasks.findIndex(task => task.time >= avarageDuration);
-		const selectedTasks = selectTasks(orderedTasks, index, number, totalDuration);
+		const selectedTasks = selectTasks(orderedTasks, number, totalDuration);
 		shuffle(selectedTasks);
 		updateCurrentTasks(selectedTasks);
 		console.log(selectedTasks);
