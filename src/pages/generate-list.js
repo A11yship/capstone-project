@@ -20,12 +20,12 @@ export default function GenerateList() {
 		upperIndex,
 		number,
 		totalDuration,
-		avarageDuration,
 		lowerIndex = upperIndex - 1,
 		currentDuration = 0,
 		selectedTasks = [],
 		up = true
 	) {
+		const avarageDuration = totalDuration / number;
 		if (
 			number === selectedTasks.length ||
 			currentDuration >= totalDuration ||
@@ -45,7 +45,6 @@ export default function GenerateList() {
 				upperIndex,
 				number,
 				totalDuration,
-				avarageDuration,
 				lowerIndex,
 				currentDuration,
 				selectedTasks,
@@ -62,7 +61,6 @@ export default function GenerateList() {
 					upperIndex,
 					number,
 					totalDuration,
-					avarageDuration,
 					lowerIndex,
 					currentDuration,
 					selectedTasks,
@@ -75,7 +73,6 @@ export default function GenerateList() {
 					upperIndex,
 					number,
 					totalDuration,
-					avarageDuration,
 					lowerIndex,
 					currentDuration,
 					selectedTasks,
@@ -93,7 +90,6 @@ export default function GenerateList() {
 					upperIndex,
 					number,
 					totalDuration,
-					avarageDuration,
 					lowerIndex,
 					currentDuration,
 					selectedTasks,
@@ -106,7 +102,6 @@ export default function GenerateList() {
 					upperIndex,
 					number,
 					totalDuration,
-					avarageDuration,
 					lowerIndex,
 					currentDuration,
 					selectedTasks,
@@ -128,17 +123,12 @@ export default function GenerateList() {
 			(firstTask, secondTask) => firstTask.time - secondTask.time
 		);
 		const index = orderedTasks.findIndex(task => task.time >= avarageDuration);
-		const selectedTasks = selectTasks(
-			orderedTasks,
-			index,
-			number,
-			totalDuration,
-			avarageDuration
-		);
+		const selectedTasks = selectTasks(orderedTasks, index, number, totalDuration);
 		shuffle(selectedTasks);
 		updateCurrentTasks(selectedTasks);
-		form.reset();
-		router.push('/');
+		console.log(selectedTasks);
+		//form.reset();
+		//router.push('/');
 	}
 
 	return (
