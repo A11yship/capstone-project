@@ -2,18 +2,12 @@ import {useRouter} from 'next/router';
 
 import StyledForm from '../components/Form/StyledForm';
 import useStore from '../hooks/useStore';
+import shuffle from '../utils/shuffle';
 
 export default function GenerateList() {
 	const router = useRouter();
 	const tasks = useStore(state => state.tasks);
 	const updateCurrentTasks = useStore(state => state.updateCurrentTasks);
-
-	function shuffle(array) {
-		for (let i = array.length - 1; i > 0; i--) {
-			let j = Math.floor(Math.random() * (i + 1));
-			[array[i], array[j]] = [array[j], array[i]];
-		}
-	}
 
 	function selectTasks(
 		orderedTasks,
@@ -78,9 +72,8 @@ export default function GenerateList() {
 		const selectedTasks = selectTasks(orderedTasks, number, totalDuration);
 		shuffle(selectedTasks);
 		updateCurrentTasks(selectedTasks);
-		console.log(selectedTasks);
-		//form.reset();
-		//router.push('/');
+		form.reset();
+		router.push('/');
 	}
 
 	return (
