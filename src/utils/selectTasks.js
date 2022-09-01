@@ -22,7 +22,7 @@ export default function selectTasks(
 	) {
 		return selectedTasks;
 	}
-	//Adding new tasks depending the next higher or lower index
+	//Adding new tasks depending on the next higher or lower index
 	if (up) {
 		if (upperIndex < orderedTasks.length) {
 			if (orderedTasks[upperIndex].time === avarageDuration) {
