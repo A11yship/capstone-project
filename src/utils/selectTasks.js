@@ -9,17 +9,21 @@ export default function selectTasks(
 	up = true
 ) {
 	const avarageDuration = totalDuration / number;
-	if (!upperIndex) {
+	//initialize indeces
+	if (upperIndex === undefined) {
 		upperIndex = orderedTasks.findIndex(task => task.time >= avarageDuration);
 		lowerIndex = upperIndex - 1;
 	}
+	//termination conditions
 	if (
 		number === selectedTasks.length ||
 		currentDuration >= totalDuration ||
 		selectedTasks.length === orderedTasks.length
 	) {
 		return selectedTasks;
-	} else if (up) {
+	}
+	//Adding new tasks depending the next higher or lower index
+	if (up) {
 		if (upperIndex < orderedTasks.length) {
 			if (orderedTasks[upperIndex].time === avarageDuration) {
 				up = !up;
