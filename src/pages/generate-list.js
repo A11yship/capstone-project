@@ -36,83 +36,33 @@ export default function GenerateList() {
 			selectedTasks.length === orderedTasks.length
 		) {
 			return selectedTasks;
-		} else if (
-			up &&
-			upperIndex < orderedTasks.length &&
-			orderedTasks[upperIndex].time === avarageDuration
-		) {
-			selectedTasks.push(orderedTasks[upperIndex]);
-			currentDuration += orderedTasks[upperIndex].time;
-			upperIndex += 1;
-			return selectTasks(
-				orderedTasks,
-				number,
-				totalDuration,
-				upperIndex,
-				lowerIndex,
-				currentDuration,
-				selectedTasks,
-				up
-			);
 		} else if (up) {
 			if (upperIndex < orderedTasks.length) {
+				if (orderedTasks[upperIndex].time === avarageDuration) {
+					up = !up;
+				}
 				selectedTasks.push(orderedTasks[upperIndex]);
 				currentDuration += orderedTasks[upperIndex].time;
 				upperIndex += 1;
-				up = !up;
-				return selectTasks(
-					orderedTasks,
-					number,
-					totalDuration,
-					upperIndex,
-					lowerIndex,
-					currentDuration,
-					selectedTasks,
-					up
-				);
-			} else {
-				up = !up;
-				return selectTasks(
-					orderedTasks,
-					number,
-					totalDuration,
-					upperIndex,
-					lowerIndex,
-					currentDuration,
-					selectedTasks,
-					up
-				);
 			}
-		} else if (!up) {
+		} else {
 			if (lowerIndex >= 0) {
 				selectedTasks.push(orderedTasks[lowerIndex]);
 				currentDuration += orderedTasks[lowerIndex].time;
 				lowerIndex -= 1;
-				up = !up;
-				return selectTasks(
-					orderedTasks,
-					number,
-					totalDuration,
-					upperIndex,
-					lowerIndex,
-					currentDuration,
-					selectedTasks,
-					up
-				);
-			} else {
-				up = !up;
-				return selectTasks(
-					orderedTasks,
-					number,
-					totalDuration,
-					upperIndex,
-					lowerIndex,
-					currentDuration,
-					selectedTasks,
-					up
-				);
 			}
 		}
+		up = !up;
+		return selectTasks(
+			orderedTasks,
+			number,
+			totalDuration,
+			upperIndex,
+			lowerIndex,
+			currentDuration,
+			selectedTasks,
+			up
+		);
 	}
 
 	function handleSubmit(event) {
