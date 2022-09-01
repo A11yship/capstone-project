@@ -2,62 +2,13 @@ import {useRouter} from 'next/router';
 
 import StyledForm from '../components/Form/StyledForm';
 import useStore from '../hooks/useStore';
+import selectTasks from '../utils/selectTasks';
 import shuffle from '../utils/shuffle';
 
 export default function GenerateList() {
 	const router = useRouter();
 	const tasks = useStore(state => state.tasks);
 	const updateCurrentTasks = useStore(state => state.updateCurrentTasks);
-
-	function selectTasks(
-		orderedTasks,
-		number,
-		totalDuration,
-		upperIndex,
-		lowerIndex,
-		currentDuration = 0,
-		selectedTasks = [],
-		up = true
-	) {
-		const avarageDuration = totalDuration / number;
-		if (!upperIndex) {
-			upperIndex = orderedTasks.findIndex(task => task.time >= avarageDuration);
-			lowerIndex = upperIndex - 1;
-		}
-		if (
-			number === selectedTasks.length ||
-			currentDuration >= totalDuration ||
-			selectedTasks.length === orderedTasks.length
-		) {
-			return selectedTasks;
-		} else if (up) {
-			if (upperIndex < orderedTasks.length) {
-				if (orderedTasks[upperIndex].time === avarageDuration) {
-					up = !up;
-				}
-				selectedTasks.push(orderedTasks[upperIndex]);
-				currentDuration += orderedTasks[upperIndex].time;
-				upperIndex += 1;
-			}
-		} else {
-			if (lowerIndex >= 0) {
-				selectedTasks.push(orderedTasks[lowerIndex]);
-				currentDuration += orderedTasks[lowerIndex].time;
-				lowerIndex -= 1;
-			}
-		}
-		up = !up;
-		return selectTasks(
-			orderedTasks,
-			number,
-			totalDuration,
-			upperIndex,
-			lowerIndex,
-			currentDuration,
-			selectedTasks,
-			up
-		);
-	}
 
 	function handleSubmit(event) {
 		event.preventDefault();
