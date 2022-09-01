@@ -6,6 +6,7 @@ import useStore from '../hooks/useStore';
 export default function GenerateList() {
 	const router = useRouter();
 	const tasks = useStore(state => state.tasks);
+	const updateCurrentTasks = useStore(state => state.updateCurrentTasks);
 
 	function shuffle(array) {
 		for (let i = array.length - 1; i > 0; i--) {
@@ -117,9 +118,9 @@ export default function GenerateList() {
 
 	function handleSubmit(event) {
 		event.preventDefault();
-		const formElements = event.target.elements;
-		const totalDuration = Number.parseInt(formElements.totalDuration.value, 10);
-		const number = Number.parseInt(formElements.numberOfTasks.value, 10);
+		const form = event.target;
+		const totalDuration = Number.parseInt(form.elements.totalDuration.value, 10);
+		const number = Number.parseInt(form.elements.numberOfTasks.value, 10);
 		const avarageDuration = totalDuration / number;
 		const shuffledTasks = [...tasks];
 		shuffle(shuffledTasks);
@@ -134,7 +135,10 @@ export default function GenerateList() {
 			totalDuration,
 			avarageDuration
 		);
-		console.log(selectedTasks);
+		shuffle(selectedTasks);
+		updateCurrentTasks(selectedTasks);
+		form.reset();
+		router.push('/');
 	}
 
 	return (
