@@ -1,3 +1,5 @@
+import {useRouter} from 'next/router';
+
 import Button from '../components/Button/Button';
 import Layout from '../components/Layout';
 import StyledList from '../components/List/StyledList';
@@ -6,6 +8,8 @@ import useStore from '../hooks/useStore';
 
 export default function TaskList() {
 	const tasks = useStore(state => state.tasks);
+	const router = useRouter();
+
 	return (
 		<Layout>
 			<h1>Alle Aufgaben</h1>
@@ -14,7 +18,7 @@ export default function TaskList() {
 					<StyledListItem key={task.id}>
 						<span>{task.name}</span>
 						<span>{task.time}min</span>
-						<Button onClick={() => console.log('Bearbeiten')}>Edit</Button>
+						<Button onClick={() => router.push('/create-task')}>Edit</Button>
 					</StyledListItem>
 				))}
 			</StyledList>
