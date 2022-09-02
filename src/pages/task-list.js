@@ -6,7 +6,10 @@ import useStore from '../hooks/useStore';
 
 export default function TaskList() {
 	const tasks = useStore(state => state.tasks);
-	function handleDelete() {
+	const deleteTask = useStore(state => state.deleteTask);
+
+	function handleDelete(id) {
+		deleteTask(id);
 		console.log('löschen');
 	}
 
@@ -18,7 +21,7 @@ export default function TaskList() {
 					<StyledListItem key={task.id}>
 						<span>{task.name}</span>
 						<span>{task.time}min</span>
-						<Button onClick={handleDelete}>Löschen</Button>
+						<Button onClick={() => handleDelete(task.id)}>Löschen</Button>
 					</StyledListItem>
 				))}
 			</StyledList>

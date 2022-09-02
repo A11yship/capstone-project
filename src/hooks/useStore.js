@@ -14,6 +14,9 @@ const useStore = create(set => ({
 	addTask(name, time) {
 		set(({tasks}) => ({tasks: [...tasks, {id: nanoid(), name, time}]}));
 	},
+	deleteTask(currentTaskId) {
+		set(({tasks}) => ({tasks: tasks.filter(task => task.id !== currentTaskId)}));
+	},
 	currentTasks: [],
 	updateCurrentTasks(taskArray) {
 		set(() => ({currentTasks: [...taskArray]}));
