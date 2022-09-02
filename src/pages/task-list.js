@@ -1,3 +1,4 @@
+import Button from '../components/Button/Button';
 import Layout from '../components/Layout';
 import StyledList from '../components/List/StyledList';
 import StyledListItem from '../components/ListItem/StyledListItem';
@@ -13,6 +14,7 @@ export default function TaskList() {
 					<StyledListItem key={task.id}>
 						<span>{task.name}</span>
 						<span>{task.time}min</span>
+						<Button onClick={() => console.log('Bearbeiten')}>Edit</Button>
 					</StyledListItem>
 				))}
 			</StyledList>
