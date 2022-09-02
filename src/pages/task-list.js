@@ -8,11 +8,6 @@ export default function TaskList() {
 	const tasks = useStore(state => state.tasks);
 	const deleteTask = useStore(state => state.deleteTask);
 
-	function handleDelete(id) {
-		deleteTask(id);
-		console.log('löschen');
-	}
-
 	return (
 		<Layout>
 			<h1>Alle Aufgaben</h1>
@@ -21,7 +16,7 @@ export default function TaskList() {
 					<StyledListItem key={task.id}>
 						<span>{task.name}</span>
 						<span>{task.time}min</span>
-						<Button onClick={() => handleDelete(task.id)}>Löschen</Button>
+						<Button onClick={() => deleteTask(task.id)}>Löschen</Button>
 					</StyledListItem>
 				))}
 			</StyledList>
