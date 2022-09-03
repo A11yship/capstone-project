@@ -5,7 +5,6 @@ import Layout from '../components/Layout';
 
 export default function CreateTask() {
 	const {query} = useRouter();
-	console.log(query.id);
 
 	return (
 		<Layout>

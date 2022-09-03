@@ -1,5 +1,5 @@
 import {useRouter} from 'next/router';
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 
 import useStore from '../../hooks/useStore';
 import Button from '../Button/Button';
@@ -7,11 +7,16 @@ import Button from '../Button/Button';
 import StyledForm from './StyledForm';
 
 export default function Form({task = {}}) {
-	const [taskName, setTaskName] = useState(task?.name ?? '');
-	const [duration, setDuration] = useState(task?.time ?? '');
+	const [taskName, setTaskName] = useState(task.name ?? '');
+	const [duration, setDuration] = useState(task.time ?? '');
 	const addTask = useStore(state => state.addTask);
 	const editTask = useStore(state => state.editTask);
 	const router = useRouter();
+
+	useEffect(() => {
+		setTaskName(task.name ?? '');
+		setDuration(task.time ?? '');
+	}, [task]);
 
 	function handleSubmit(event) {
 		event.preventDefault();
