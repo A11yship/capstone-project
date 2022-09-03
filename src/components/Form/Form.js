@@ -5,7 +5,7 @@ import useStore from '../../hooks/useStore';
 
 import StyledForm from './StyledForm';
 
-export default function Form({task}) {
+export default function Form({task = {}}) {
 	const [taskName, setTaskName] = useState(task?.name ?? '');
 	const [duration, setDuration] = useState(task?.time ?? '');
 	const addTask = useStore(state => state.addTask);
@@ -15,7 +15,6 @@ export default function Form({task}) {
 	function handleSubmit(event) {
 		event.preventDefault();
 		const form = event.target;
-		console.log(task.id);
 		task.id ? editTask(task.id, taskName, duration) : addTask(taskName, duration);
 		form.reset();
 		router.push('/task-list');
@@ -44,7 +43,7 @@ export default function Form({task}) {
 				min={1}
 				placeholder="10"
 				value={duration}
-				onChange={event => setDuration(event.target.value)}
+				onChange={event => setDuration(Number.parseInt(event.target.value), 10)}
 			/>
 			<button>Speichern</button>
 		</StyledForm>
