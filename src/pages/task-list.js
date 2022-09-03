@@ -46,7 +46,19 @@ export default function TaskList() {
 					<StyledListItem key={task.id}>
 						<span>{task.name}</span>
 						<span>{task.time}min</span>
-						<Button onClick={() => router.push('/create-task')}>Edit</Button>
+						<Button
+							onClick={() =>
+								router.push(
+									{
+										pathname: '/create-task',
+										query: task,
+									},
+									'/create-task'
+								)
+							}
+						>
+							Edit
+						</Button>
 						<Button onClick={() => handleClick(task)}>Löschen</Button>
 					</StyledListItem>
 				))}
