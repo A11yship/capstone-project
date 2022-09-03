@@ -18,6 +18,11 @@ const useStore = create((set, get) => ({
 		set(({tasks}) => ({tasks: tasks.filter(task => task.id !== currentTaskId)}));
 		get().deleteFromCurrentTasks(currentTaskId);
 	},
+	editTask(currentId, name, time) {
+		set(({tasks}) => ({
+			tasks: tasks.map(task => (task.id === currentId ? {...task, name, time} : task)),
+		}));
+	},
 	currentTasks: [],
 	updateCurrentTasks(taskArray) {
 		set(() => ({currentTasks: [...taskArray]}));

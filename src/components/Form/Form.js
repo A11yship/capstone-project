@@ -9,13 +9,14 @@ export default function Form({task}) {
 	const [taskName, setTaskName] = useState(task?.name ?? '');
 	const [duration, setDuration] = useState(task?.time ?? '');
 	const addTask = useStore(state => state.addTask);
+	const editTask = useStore(state => state.editTask);
 	const router = useRouter();
-	console.log('form', task.time);
 
 	function handleSubmit(event) {
 		event.preventDefault();
 		const form = event.target;
-		addTask(taskName, duration);
+		console.log(task.id);
+		task.id ? editTask(task.id, taskName, duration) : addTask(taskName, duration);
 		form.reset();
 		router.push('/task-list');
 	}
