@@ -2,6 +2,7 @@ import {useRouter} from 'next/router';
 import {useState} from 'react';
 
 import useStore from '../../hooks/useStore';
+import Button from '../Button/Button';
 
 import StyledForm from './StyledForm';
 
@@ -45,7 +46,8 @@ export default function Form({task = {}}) {
 				value={duration}
 				onChange={event => setDuration(Number.parseInt(event.target.value), 10)}
 			/>
-			<button>Speichern</button>
+			{task.id && <Button onClick={() => router.push('/task-list')}>Abbrechen</Button>}
+			<Button type="submit">Speichern</Button>
 		</StyledForm>
 	);
 }
