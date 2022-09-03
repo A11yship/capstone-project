@@ -2,6 +2,7 @@ import Button from '../components/Button/Button';
 import Layout from '../components/Layout';
 import StyledList from '../components/List/StyledList';
 import StyledListItem from '../components/ListItem/StyledListItem';
+import Modal from '../components/Modal/Modal';
 import useStore from '../hooks/useStore';
 
 export default function TaskList() {
@@ -11,6 +12,7 @@ export default function TaskList() {
 	return (
 		<Layout>
 			<h1>Alle Aufgaben</h1>
+			<Modal />
 			<StyledList role="list">
 				{tasks.map(task => (
 					<StyledListItem key={task.id}>
