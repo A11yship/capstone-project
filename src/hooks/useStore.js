@@ -1,7 +1,7 @@
 import {nanoid} from 'nanoid';
 import create from 'zustand';
 
-const useStore = create(set => ({
+const useStore = create((set, get) => ({
 	tasks: [
 		{id: nanoid(), name: 'Test Timer', time: 0.25},
 		{id: nanoid(), name: 'Abwaschen', time: 15},
@@ -13,6 +13,10 @@ const useStore = create(set => ({
 	],
 	addTask(name, time) {
 		set(({tasks}) => ({tasks: [...tasks, {id: nanoid(), name, time}]}));
+	},
+	deleteTask(currentTaskId) {
+		set(({tasks}) => ({tasks: tasks.filter(task => task.id !== currentTaskId)}));
+		get().deleteFromCurrentTasks(currentTaskId);
 	},
 	currentTasks: [],
 	updateCurrentTasks(taskArray) {
