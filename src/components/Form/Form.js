@@ -1,6 +1,7 @@
 import {useRouter} from 'next/router';
 
 import useStore from '../../hooks/useStore';
+import Button from '../Button/Button';
 
 import StyledForm from './StyledForm';
 
@@ -32,7 +33,7 @@ export default function Form() {
 			/>
 			<label htmlFor="duration">Dauer in Minuten</label>
 			<input type="number" name="duration" id="duration" required min={1} placeholder="10" />
-			<button>Speichern</button>
+			<Button type="submit">Speichern</Button>
 		</StyledForm>
 	);
 }

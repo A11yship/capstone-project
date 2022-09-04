@@ -1,5 +1,6 @@
 import {useRouter} from 'next/router';
 
+import Button from '../components/Button/Button';
 import StyledButtonContainer from '../components/ButtonContainer/StyledButtonContainer';
 import StyledForm from '../components/Form/StyledForm';
 import StyledMain from '../components/StyledMain';
@@ -52,10 +53,10 @@ export default function GenerateList() {
 					placeholder="5"
 				></input>
 				<StyledButtonContainer>
-					<button type="button" onClick={() => router.push('/')}>
+					<Button type="button" onClick={() => router.push('/')}>
 						Abbrechen
-					</button>
-					<button>Generieren</button>
+					</Button>
+					<Button type="submit">Generieren</Button>
 				</StyledButtonContainer>
 			</StyledForm>
 		</StyledMain>
