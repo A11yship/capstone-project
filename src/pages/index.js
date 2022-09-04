@@ -3,6 +3,7 @@ import {useRouter} from 'next/router';
 
 import Button from '../components/Button/Button';
 import CurrentTask from '../components/CurrentTask/CurrentTask';
+import Icon from '../components/Icon/Icon';
 import Layout from '../components/Layout';
 import StyledList from '../components/List/StyledList';
 import StyledListItem from '../components/ListItem/StyledListItem';
@@ -35,6 +36,7 @@ export default function HomePage() {
 						</StyledListItem>
 					))}
 				</StyledList>
+				<Icon />
 			</Layout>
 		</>
 	);
