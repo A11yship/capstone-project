@@ -37,6 +37,12 @@ export default function HomePage() {
 					))}
 				</StyledList>
 				<Icon variant="delete" />
+				<Icon variant="edit" />
+				<Icon variant="play" />
+				<Icon variant="pause" />
+				<Icon variant="done" />
+				<Icon variant="add" />
+				<Icon variant="list" />
 			</Layout>
 		</>
 	);
