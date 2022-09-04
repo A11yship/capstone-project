@@ -3,7 +3,6 @@ import {useRouter} from 'next/router';
 
 import Button from '../components/Button/Button';
 import CurrentTask from '../components/CurrentTask/CurrentTask';
-import Icon from '../components/Icon/Icon';
 import Layout from '../components/Layout';
 import StyledList from '../components/List/StyledList';
 import StyledListItem from '../components/ListItem/StyledListItem';
@@ -36,13 +35,6 @@ export default function HomePage() {
 						</StyledListItem>
 					))}
 				</StyledList>
-				<Icon variant="delete" color="var(--light-color)" />
-				<Icon variant="edit" color="var(--light-accent)" />
-				<Icon variant="play" color="var(--brand-color)" />
-				<Icon variant="pause" color="var(--dark-accent)" />
-				<Icon variant="done" color="var(--dark-color)" />
-				<Icon variant="add" color="black" />
-				<Icon variant="list" />
 			</Layout>
 		</>
 	);

@@ -3,8 +3,9 @@ import styled from 'styled-components';
 const Clock = styled.div`
 	width: 204px;
 	height: 204px;
-	border: 2px black solid;
+	border: 2px var(--dark-color) solid;
 	border-radius: 50%;
+	color: lav;
 `;
 const Time = styled.div`
 	width: 200px;

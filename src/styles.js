@@ -11,10 +11,12 @@ export const GlobalStyle = createGlobalStyle`
 
 	:root {
 		--light-color: #fcf8ee;
-  		--light-accent: #e7c2ff;
+  		--light-accent: #bfbfee;
   		--brand-color: #90f;
   		--dark-accent: #501e71;
   		--dark-color: #3d0066;
+		--succes: #358835;
+		--danger: #f44336
 	}
 
 	html {
