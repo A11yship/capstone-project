@@ -3,6 +3,7 @@ import {useEffect, useState} from 'react';
 import useStore from '../../hooks/useStore';
 import {Clock, Time} from '../AnalogTimer/StyledAnalogtimer';
 import Button from '../Button/Button';
+import StyledButtonContainer from '../ButtonContainer/StyledButtonContainer';
 
 import {StyledCurrentTask, StyledSpan} from './StyledCurrentTask';
 
@@ -55,14 +56,20 @@ export default function CurrentTask() {
 									}}
 								></Time>
 							</Clock>
-							<Button onClick={() => setTimerIsRunnig(!timerIsRunnig)}>
-								{timerIsRunnig ? 'Pause' : 'Start'}
-							</Button>
 						</>
 					) : (
 						<StyledSpan over>Fertig!</StyledSpan>
 					)}
-					<Button onClick={handleDone}>done</Button>
+					<StyledButtonContainer>
+						{time ? (
+							<Button onClick={() => setTimerIsRunnig(!timerIsRunnig)}>
+								{timerIsRunnig ? 'Pause' : 'Start'}
+							</Button>
+						) : (
+							''
+						)}
+						<Button onClick={handleDone}>done</Button>
+					</StyledButtonContainer>
 				</>
 			) : (
 				<StyledSpan>Keine aktuellen Aufgabe</StyledSpan>

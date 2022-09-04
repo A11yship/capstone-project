@@ -2,6 +2,7 @@ import Head from 'next/head';
 import {useRouter} from 'next/router';
 
 import Button from '../components/Button/Button';
+import StyledButtonContainer from '../components/ButtonContainer/StyledButtonContainer';
 import CurrentTask from '../components/CurrentTask/CurrentTask';
 import Layout from '../components/Layout';
 import StyledList from '../components/List/StyledList';
@@ -23,10 +24,12 @@ export default function HomePage() {
 				<h2>Aktuelle Aufgabe</h2>
 				<CurrentTask />
 				<h2>Aktuelle Aufgaben</h2>
-				<Button onClick={() => router.push('/create-list')}>
-					{currentTasks.length === 0 ? 'Neue Liste' : 'Liste editieren'}
-				</Button>
-				<Button onClick={() => router.push('/generate-list')}>Liste generieren</Button>
+				<StyledButtonContainer>
+					<Button onClick={() => router.push('/create-list')}>
+						{currentTasks.length === 0 ? 'Neue Liste' : 'Liste editieren'}
+					</Button>
+					<Button onClick={() => router.push('/generate-list')}>Liste generieren</Button>
+				</StyledButtonContainer>
 				<StyledList role="list">
 					{currentTasks.map((task, index) => (
 						<StyledListItem key={task.id} current={index === 0}>
