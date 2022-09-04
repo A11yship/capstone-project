@@ -6,7 +6,8 @@ const StyledColumn = styled.div`
 	gap: 5px;
 	width: 100%;
 	padding: 5px;
-	border: 1px solid black;
+	border-radius: 10px;
+	background-color: var(--light-accent);
 `;
 
 export default StyledColumn;
