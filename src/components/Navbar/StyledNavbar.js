@@ -7,9 +7,8 @@ const StyledNavbar = styled.nav`
 	align-items: center;
 	justify-content: space-around;
 	width: 100vw;
-	height: 30px;
-	border: 1px solid black;
-	background-color: white;
+	height: 50px;
+	background-color: var(--light-color);
 `;
 
 export default StyledNavbar;
