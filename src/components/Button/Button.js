@@ -1,7 +1,9 @@
+import StyledButton from './StyledButton';
+
 export default function Button({children, type = 'button', ...props}) {
 	return (
-		<button type={type} {...props}>
+		<StyledButton type={type} {...props}>
 			{children}
-		</button>
+		</StyledButton>
 	);
 }
