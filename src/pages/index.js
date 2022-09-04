@@ -36,7 +36,7 @@ export default function HomePage() {
 						</StyledListItem>
 					))}
 				</StyledList>
-				<Icon />
+				<Icon variant="delete" />
 			</Layout>
 		</>
 	);
