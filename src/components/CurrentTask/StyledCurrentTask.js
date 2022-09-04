@@ -7,7 +7,7 @@ const StyledCurrentTask = styled.div`
 	width: 80vw;
 	padding: 10px;
 	gap: 5px;
-	border-radius: 5px;
+	border-radius: 30px;
 	background-color: var(--light-accent);
 `;
 
