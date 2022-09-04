@@ -1,6 +1,8 @@
 import {useRouter} from 'next/router';
 
+import StyledButtonContainer from '../components/ButtonContainer/StyledButtonContainer';
 import StyledForm from '../components/Form/StyledForm';
+import StyledMain from '../components/StyledMain';
 import useStore from '../hooks/useStore';
 import selectTasks from '../utils/selectTasks';
 import shuffle from '../utils/shuffle';
@@ -28,7 +30,7 @@ export default function GenerateList() {
 	}
 
 	return (
-		<>
+		<StyledMain>
 			<h1>Liste generieren</h1>
 			<StyledForm name="generateList" onSubmit={handleSubmit}>
 				<label htmlFor="totalDuration">Gesamtdauer in Minuten</label>
@@ -49,11 +51,13 @@ export default function GenerateList() {
 					min={1}
 					placeholder="5"
 				></input>
-				<button type="button" onClick={() => router.push('/')}>
-					Abbrechen
-				</button>
-				<button>Generieren</button>
+				<StyledButtonContainer>
+					<button type="button" onClick={() => router.push('/')}>
+						Abbrechen
+					</button>
+					<button>Generieren</button>
+				</StyledButtonContainer>
 			</StyledForm>
-		</>
+		</StyledMain>
 	);
 }
