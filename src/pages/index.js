@@ -36,11 +36,11 @@ export default function HomePage() {
 						</StyledListItem>
 					))}
 				</StyledList>
-				<Icon variant="delete" />
-				<Icon variant="edit" />
-				<Icon variant="play" />
-				<Icon variant="pause" />
-				<Icon variant="done" />
+				<Icon variant="delete" color="var(--light-color)" />
+				<Icon variant="edit" color="var(--light-accent)" />
+				<Icon variant="play" color="var(--brand-color)" />
+				<Icon variant="pause" color="var(--dark-accent)" />
+				<Icon variant="done" color="var(--dark-color)" />
 				<Icon variant="add" />
 				<Icon variant="list" />
 			</Layout>

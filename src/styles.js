@@ -18,10 +18,10 @@ export const GlobalStyle = createGlobalStyle`
 	}
 
 	html {
-		font-size: 16px;
+		font-size: 62.5%;
 	}
 
 	body {
-		font-size: 1rem;
+		font-size: 1.6rem;
 	}
 `;
