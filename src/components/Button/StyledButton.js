@@ -6,6 +6,7 @@ const StyledButton = styled.button`
 	border-radius: 15px;
 	background-color: var(--brand-color);
 	color: var(--light-color);
+	font-family: 'Tillana', cursive;
 	:active {
 		background-color: var(--dark-color);
 	}

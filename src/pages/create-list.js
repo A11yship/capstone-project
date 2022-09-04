@@ -16,7 +16,7 @@ const DragDropContainer = dynamic(
 );
 
 export default function CreateList() {
-	const columns = ['Nicht gewählte Aufgaben', 'Ausgewählte Aufgaben'];
+	const columns = ['Ungewählt', 'Gewählt'];
 	const tasks = useStore(state => state.tasks);
 	const currentTasks = useStore(state => state.currentTasks);
 	const updateCurrentTasks = useStore(state => state.updateCurrentTasks);
@@ -37,7 +37,7 @@ export default function CreateList() {
 
 	return (
 		<StyledMain>
-			<h1>Wähle aktuelle Aufgaben </h1>
+			<h1>Wähle Aufgaben</h1>
 			<StyledContainer>
 				<DragDropContainer
 					columns={columns}

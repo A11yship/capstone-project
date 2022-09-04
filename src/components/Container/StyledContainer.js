@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const StyledContainer = styled.div`
 	display: flex;
-	width: auto;
+	width: 100%;
 	padding: 10px;
 	gap: 10px;
 `;
