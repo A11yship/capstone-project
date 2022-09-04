@@ -9,6 +9,14 @@ export const GlobalStyle = createGlobalStyle`
 		padding: 0;
 	}
 
+	:root {
+		--light-color: #f9f2dd;
+  		--light-accent: #daf;
+  		--brand-color: #90f;
+  		--dark-accent: #5b2281;
+  		--dark-color: #1a1a34;
+	}
+
 	html {
 		font-size: 16px;
 	}
