@@ -10,11 +10,11 @@ export const GlobalStyle = createGlobalStyle`
 	}
 
 	:root {
-		--light-color: #f9f2dd;
-  		--light-accent: #daf;
+		--light-color: #fcf8ee;
+  		--light-accent: #e7c2ff;
   		--brand-color: #90f;
-  		--dark-accent: #5b2281;
-  		--dark-color: #1a1a34;
+  		--dark-accent: #501e71;
+  		--dark-color: #3d0066;
 	}
 
 	html {
@@ -22,6 +22,9 @@ export const GlobalStyle = createGlobalStyle`
 	}
 
 	body {
-		font-size: 1.6rem;
+		background-color: var(--light-color);
+		color: var(--dark-color);
+  		font-size: 1.6rem;
+
 	}
 `;

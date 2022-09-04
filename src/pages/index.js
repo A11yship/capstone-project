@@ -41,7 +41,7 @@ export default function HomePage() {
 				<Icon variant="play" color="var(--brand-color)" />
 				<Icon variant="pause" color="var(--dark-accent)" />
 				<Icon variant="done" color="var(--dark-color)" />
-				<Icon variant="add" />
+				<Icon variant="add" color="black" />
 				<Icon variant="list" />
 			</Layout>
 		</>
