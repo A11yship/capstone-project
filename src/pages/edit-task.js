@@ -8,7 +8,7 @@ export default function EditTask() {
 
 	return (
 		<Layout>
-			<h1>Aufgabe {query.id ? 'bearbeiten' : 'hinzufügen'}</h1>
+			<h1>Aufgabe bearbeiten</h1>
 			<Form task={query} />
 		</Layout>
 	);

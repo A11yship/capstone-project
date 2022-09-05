@@ -50,10 +50,10 @@ export default function TaskList() {
 							onClick={() =>
 								router.push(
 									{
-										pathname: '/create-task',
+										pathname: '/edit-task',
 										query: task,
 									},
-									'/create-task'
+									'/edit-task'
 								)
 							}
 						>
