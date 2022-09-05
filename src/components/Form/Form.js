@@ -1,4 +1,5 @@
 import {useRouter} from 'next/router';
+import {useState} from 'react';
 
 import useStore from '../../hooks/useStore';
 import Button from '../Button/Button';
@@ -6,16 +7,21 @@ import StyledInput from '../Input/StyledInput';
 
 import StyledForm from './StyledForm';
 
-export default function Form() {
+export default function Form({task = {}}) {
+	const [taskName, setTaskName] = useState(task.name ?? '');
+	const [duration, setDuration] = useState(task.time ?? '');
 	const addTask = useStore(state => state.addTask);
+	const editTask = useStore(state => state.editTask);
 	const router = useRouter();
 
 	function handleSubmit(event) {
 		event.preventDefault();
 		const form = event.target;
-		const taskName = form.elements.task.value.trim();
-		const duration = Number.parseInt(form.elements.duration.value, 10);
-		addTask(taskName, duration);
+		if (task.id) {
+			editTask(task.id, taskName, duration);
+		} else {
+			addTask(taskName, duration);
+		}
 		form.reset();
 		router.push('/task-list');
 	}
@@ -31,8 +37,11 @@ export default function Form() {
 				placeholder="Neue Aufgabe"
 				minLength={1}
 				pattern=".*\S.*"
+				value={taskName}
+				onChange={event => setTaskName(event.target.value)}
 			/>
 			<label htmlFor="duration">Dauer in Minuten</label>
+
 			<StyledInput
 				type="number"
 				name="duration"
@@ -40,7 +49,10 @@ export default function Form() {
 				required
 				min={1}
 				placeholder="10"
+				value={duration}
+				onChange={event => setDuration(Number.parseInt(event.target.value), 10)}
 			/>
+			{task.id && <Button onClick={() => router.push('/task-list')}>Abbrechen</Button>}
 			<Button type="submit">Speichern</Button>
 		</StyledForm>
 	);

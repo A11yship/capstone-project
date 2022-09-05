@@ -1,3 +1,4 @@
+import {useRouter} from 'next/router';
 import {useState} from 'react';
 
 import Button from '../components/Button/Button';
@@ -12,6 +13,7 @@ export default function TaskList() {
 	const deleteTask = useStore(state => state.deleteTask);
 	const [showModal, setShowModal] = useState(false);
 	const [deletingTask, setDeletingTask] = useState({});
+	const router = useRouter();
 
 	function handleCancel() {
 		setShowModal(!showModal);
@@ -44,6 +46,19 @@ export default function TaskList() {
 					<StyledListItem key={task.id}>
 						<span>{task.name}</span>
 						<span>{task.time}min</span>
+						<Button
+							onClick={() =>
+								router.push(
+									{
+										pathname: '/edit-task',
+										query: task,
+									},
+									'/edit-task'
+								)
+							}
+						>
+							Edit
+						</Button>
 						<Button onClick={() => handleClick(task)}>Löschen</Button>
 					</StyledListItem>
 				))}
