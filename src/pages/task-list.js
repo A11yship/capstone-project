@@ -58,7 +58,7 @@ export default function TaskList() {
 								)
 							}
 						>
-							<Icon variant="break" size="17px" />
+							<Icon variant="edit" size="17px" />
 						</Button>
 						<Button onClick={() => handleClick(task)}>
 							<Icon variant="delete" size="17px" />
