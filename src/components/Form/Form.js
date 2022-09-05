@@ -1,5 +1,5 @@
 import {useRouter} from 'next/router';
-import {useEffect, useState} from 'react';
+import {useState} from 'react';
 
 import useStore from '../../hooks/useStore';
 import Button from '../Button/Button';
@@ -13,15 +13,14 @@ export default function Form({task = {}}) {
 	const editTask = useStore(state => state.editTask);
 	const router = useRouter();
 
-	useEffect(() => {
-		setTaskName(task.name ?? '');
-		setDuration(task.time ?? '');
-	}, [task]);
-
 	function handleSubmit(event) {
 		event.preventDefault();
 		const form = event.target;
-		task.id ? editTask(task.id, taskName, duration) : addTask(taskName, duration);
+		if (task.id) {
+			editTask(task.id, taskName, duration);
+		} else {
+			addTask(taskName, duration);
+		}
 		form.reset();
 		router.push('/task-list');
 	}
