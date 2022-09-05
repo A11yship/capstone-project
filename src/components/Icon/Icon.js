@@ -8,7 +8,7 @@ const icons = {
 		alt: 'Aufgabe bearbeiten',
 	},
 	play: {path: 'M8,5.14V19.14L19,12.14L8,5.14Z', alt: 'Timer starten'},
-	pause: {path: 'M14,19H18V5H14M6,19H10V5H6V19Z', alt: 'Timer pausieren'},
+	break: {path: 'M14,19H18V5H14M6,19H10V5H6V19Z', alt: 'Timer pausieren'},
 	done: {
 		path: 'M9,20.42L2.79,14.21L5.62,11.38L9,14.77L18.88,4.88L21.71,7.71L9,20.42Z',
 		alt: 'Aufgabe ist erledigt',

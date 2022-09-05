@@ -4,6 +4,7 @@ import useStore from '../../hooks/useStore';
 import {Clock, Time} from '../AnalogTimer/StyledAnalogtimer';
 import Button from '../Button/Button';
 import StyledButtonContainer from '../ButtonContainer/StyledButtonContainer';
+import Icon from '../Icon/Icon';
 
 import {StyledCurrentTask, StyledSpan} from './StyledCurrentTask';
 
@@ -63,12 +64,14 @@ export default function CurrentTask() {
 					<StyledButtonContainer>
 						{time ? (
 							<Button onClick={() => setTimerIsRunnig(!timerIsRunnig)}>
-								{timerIsRunnig ? 'Pause' : 'Start'}
+								{timerIsRunnig ? <Icon variant="break" /> : <Icon variant="play" />}
 							</Button>
 						) : (
 							''
 						)}
-						<Button onClick={handleDone}>done</Button>
+						<Button onClick={handleDone}>
+							<Icon variant="done" />
+						</Button>
 					</StyledButtonContainer>
 				</>
 			) : (
