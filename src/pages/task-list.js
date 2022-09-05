@@ -2,6 +2,7 @@ import {useRouter} from 'next/router';
 import {useState} from 'react';
 
 import Button from '../components/Button/Button';
+import Icon from '../components/Icon/Icon';
 import Layout from '../components/Layout';
 import StyledList from '../components/List/StyledList';
 import StyledListItem from '../components/ListItem/StyledListItem';
@@ -57,9 +58,11 @@ export default function TaskList() {
 								)
 							}
 						>
-							Edit
+							<Icon variant="break" size="20px" />
 						</Button>
-						<Button onClick={() => handleClick(task)}>Löschen</Button>
+						<Button onClick={() => handleClick(task)}>
+							<Icon variant="delete" size="20px" />
+						</Button>
 					</StyledListItem>
 				))}
 			</StyledList>
