@@ -5,7 +5,7 @@ import Button from '../components/Button/Button';
 import Icon from '../components/Icon/Icon';
 import Layout from '../components/Layout';
 import StyledList from '../components/List/StyledList';
-import StyledListItem from '../components/ListItem/StyledListItem';
+import {StyledListItem, GrowingSpan} from '../components/ListItem/StyledListItem';
 import Modal from '../components/Modal/Modal';
 import useStore from '../hooks/useStore';
 
@@ -45,7 +45,7 @@ export default function TaskList() {
 			<StyledList role="list">
 				{tasks.map(task => (
 					<StyledListItem key={task.id}>
-						<span>{task.name}</span>
+						<GrowingSpan>{task.name}</GrowingSpan>
 						<span>{task.time}min</span>
 						<Button
 							onClick={() =>
@@ -58,10 +58,10 @@ export default function TaskList() {
 								)
 							}
 						>
-							<Icon variant="break" size="20px" />
+							<Icon variant="break" size="17px" />
 						</Button>
 						<Button onClick={() => handleClick(task)}>
-							<Icon variant="delete" size="20px" />
+							<Icon variant="delete" size="17px" />
 						</Button>
 					</StyledListItem>
 				))}

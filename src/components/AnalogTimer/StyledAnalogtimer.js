@@ -5,7 +5,6 @@ const Clock = styled.div`
 	height: 204px;
 	border: 2px var(--dark-color) solid;
 	border-radius: 50%;
-	color: lav;
 `;
 const Time = styled.div`
 	width: 200px;

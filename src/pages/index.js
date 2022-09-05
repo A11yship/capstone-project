@@ -6,7 +6,7 @@ import StyledButtonContainer from '../components/ButtonContainer/StyledButtonCon
 import CurrentTask from '../components/CurrentTask/CurrentTask';
 import Layout from '../components/Layout';
 import StyledList from '../components/List/StyledList';
-import StyledListItem from '../components/ListItem/StyledListItem';
+import {StyledListItem} from '../components/ListItem/StyledListItem';
 import useStore from '../hooks/useStore';
 
 export default function HomePage() {
@@ -26,7 +26,7 @@ export default function HomePage() {
 				<h2>Aktuelle Aufgaben</h2>
 				<StyledButtonContainer>
 					<Button onClick={() => router.push('/create-list')}>
-						{currentTasks.length === 0 ? 'Neue Liste' : 'Liste editieren'}
+						{currentTasks.length === 0 ? 'Neue Liste' : 'Liste bearbeiten'}
 					</Button>
 					<Button onClick={() => router.push('/generate-list')}>Liste generieren</Button>
 				</StyledButtonContainer>
