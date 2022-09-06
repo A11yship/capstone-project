@@ -9,6 +9,9 @@ const StyledButton = styled.button`
 	color: var(--brand-color);
 	font-family: 'Tillana', cursive;
 	font-weight: bold;
+	:hover {
+		background-color: var(--light-accent);
+	}
 	:active {
 		background-color: var(--dark-color);
 		color: var(--light-accent);
