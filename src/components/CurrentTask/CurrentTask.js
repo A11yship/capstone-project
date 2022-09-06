@@ -63,13 +63,13 @@ export default function CurrentTask() {
 					)}
 					<StyledButtonContainer>
 						{time ? (
-							<Button onClick={() => setTimerIsRunnig(!timerIsRunnig)}>
+							<Button variant="icon" onClick={() => setTimerIsRunnig(!timerIsRunnig)}>
 								{timerIsRunnig ? <Icon variant="break" /> : <Icon variant="play" />}
 							</Button>
 						) : (
 							''
 						)}
-						<Button onClick={handleDone}>
+						<Button variant="icon" onClick={handleDone}>
 							<Icon variant="done" />
 						</Button>
 					</StyledButtonContainer>

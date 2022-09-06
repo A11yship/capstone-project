@@ -48,6 +48,7 @@ export default function TaskList() {
 						<GrowingSpan>{task.name}</GrowingSpan>
 						<span>{task.time}min</span>
 						<Button
+							variant="icon"
 							onClick={() =>
 								router.push(
 									{
@@ -58,10 +59,10 @@ export default function TaskList() {
 								)
 							}
 						>
-							<Icon variant="edit" size="17px" />
+							<Icon variant="edit" size="20px" />
 						</Button>
-						<Button onClick={() => handleClick(task)}>
-							<Icon variant="delete" size="17px" />
+						<Button variant="icon" onClick={() => handleClick(task)}>
+							<Icon variant="delete" size="20px" />
 						</Button>
 					</StyledListItem>
 				))}

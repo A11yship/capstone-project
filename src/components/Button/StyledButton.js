@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, {css} from 'styled-components';
 
 const StyledButton = styled.button`
 	display: flex;
@@ -16,6 +16,13 @@ const StyledButton = styled.button`
 		background-color: var(--dark-color);
 		color: var(--light-accent);
 	}
+
+	${({variant}) =>
+		variant === 'icon' &&
+		css`
+			padding: 2px;
+			border-radius: 50%;
+		`}
 `;
 
 export default StyledButton;
