@@ -20,7 +20,7 @@ const StyledLink = styled.a`
 	border: 2px solid black;
 	border-radius: 1px;
 	background-color: var(--brand-color);
-	color: ${({active}) => (active ? 'var(--dark-color);' : 'var(--light-color);')};
+	color: ${({active}) => (active ? 'var(--light-color);' : 'var(--dark-color);')};
 `;
 
 export {StyledNavbar, StyledLink};

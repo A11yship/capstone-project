@@ -12,7 +12,7 @@ export const GlobalStyle = createGlobalStyle`
 	:root {
 		--light-color: #fffaf1;
   		--light-accent: #d9d9ff;
-  		--brand-color: #6e00c3;
+  		--brand-color: #6e22c3;
   		--dark-accent: #501e71;
   		--dark-color: #3d0066;
 		--succes: #358835;
