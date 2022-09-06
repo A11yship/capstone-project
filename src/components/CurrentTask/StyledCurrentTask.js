@@ -14,7 +14,11 @@ const StyledCurrentTask = styled.div`
 const StyledSpan = styled.span`
 	color: ${({over}) => (over ? 'var(--succes)' : 'var(--dark-color)')};
 	font-size: ${({over}) => (over ? '2.5rem' : '2rem')};
-	font-weight: bold;
 `;
 
-export {StyledCurrentTask, StyledSpan};
+const StyledP = styled.p`
+	font-weight: normal;
+	text-align: center;
+`;
+
+export {StyledCurrentTask, StyledSpan, StyledP};

@@ -23,7 +23,7 @@ export default function HomePage() {
 				<h1>Meine Aufgaben App</h1>
 				<h2>Aktuelle Aufgabe</h2>
 				<CurrentTask />
-				<h2>Weitere Aufgaben</h2>
+				<h2>Aufgaben</h2>
 				<StyledList role="list">
 					{currentTasks.map((task, index) => (
 						<StyledListItem key={task.id} current={index === 0}>
