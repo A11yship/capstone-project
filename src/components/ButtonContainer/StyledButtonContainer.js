@@ -4,7 +4,7 @@ const StyledButtonContainer = styled.div`
 	display: flex;
 	justify-content: space-evenly;
 	width: 80vw;
-	padding-top: 5px;
+	padding-top: ${({inForm}) => (inForm ? '10px' : '0')};
 `;
 
 export default StyledButtonContainer;

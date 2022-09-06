@@ -42,7 +42,6 @@ export default function Form({task = {}}) {
 				onChange={event => setTaskName(event.target.value)}
 			/>
 			<label htmlFor="duration">Dauer in Minuten</label>
-
 			<StyledInput
 				type="number"
 				name="duration"
@@ -53,7 +52,7 @@ export default function Form({task = {}}) {
 				value={duration}
 				onChange={event => setDuration(Number.parseInt(event.target.value), 10)}
 			/>
-			<StyledButtonContainer>
+			<StyledButtonContainer inForm>
 				{task.id && <Button onClick={() => router.push('/task-list')}>Abbrechen</Button>}
 				<Button type="submit">Speichern</Button>
 			</StyledButtonContainer>

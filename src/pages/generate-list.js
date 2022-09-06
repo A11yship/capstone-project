@@ -53,7 +53,7 @@ export default function GenerateList() {
 					min={1}
 					placeholder="5"
 				/>
-				<StyledButtonContainer>
+				<StyledButtonContainer inForm>
 					<Button type="button" onClick={() => router.push('/')}>
 						Abbrechen
 					</Button>
