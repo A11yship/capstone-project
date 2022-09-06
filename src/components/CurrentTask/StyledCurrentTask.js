@@ -12,7 +12,6 @@ const StyledCurrentTask = styled.div`
 `;
 
 const StyledSpan = styled.span`
-	padding: 5px;
 	color: ${({over}) => (over ? 'var(--succes)' : 'var(--dark-color)')};
 	font-size: ${({over}) => (over ? '2.5rem' : '2rem')};
 	font-weight: bold;
