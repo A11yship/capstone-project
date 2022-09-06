@@ -21,7 +21,9 @@ export default function Navbar() {
 				</StyledLink>
 			</Link>
 			<Link href="/create-task">
-				<StyledLink active={router.pathname === '/create-task'}>
+				<StyledLink
+					active={router.pathname === '/create-task' || router.pathname === '/edit-task'}
+				>
 					<Icon variant="add" size="40px" />
 				</StyledLink>
 			</Link>
