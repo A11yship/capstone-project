@@ -4,7 +4,7 @@ import StyledMain from './StyledMain';
 export default function Layout({children}) {
 	return (
 		<>
-			<StyledMain>{children}</StyledMain>
+			<StyledMain hasNavbar>{children}</StyledMain>
 			<Navbar />
 		</>
 	);
