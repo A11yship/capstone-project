@@ -4,7 +4,7 @@ const StyledMain = styled.main`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	height: calc(100vh - 70px);
+	min-height: calc(100vh - 70px);
 	gap: 10px;
 	margin: 10px 0 60px;
 `;

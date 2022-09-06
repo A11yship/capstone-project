@@ -23,13 +23,7 @@ export default function HomePage() {
 				<h1>Meine Aufgaben App</h1>
 				<h2>Aktuelle Aufgabe</h2>
 				<CurrentTask />
-				<h2>Aktuelle Aufgaben</h2>
-				<StyledButtonContainer>
-					<Button onClick={() => router.push('/create-list')}>
-						{currentTasks.length === 0 ? 'Neue Liste' : 'Liste bearbeiten'}
-					</Button>
-					<Button onClick={() => router.push('/generate-list')}>Liste generieren</Button>
-				</StyledButtonContainer>
+				<h2>Weitere Aufgaben</h2>
 				<StyledList role="list">
 					{currentTasks.map((task, index) => (
 						<StyledListItem key={task.id} current={index === 0}>
@@ -38,6 +32,12 @@ export default function HomePage() {
 						</StyledListItem>
 					))}
 				</StyledList>
+				<StyledButtonContainer>
+					<Button onClick={() => router.push('/create-list')}>
+						{currentTasks.length === 0 ? 'Neue Liste' : 'Liste bearbeiten'}
+					</Button>
+					<Button onClick={() => router.push('/generate-list')}>Liste generieren</Button>
+				</StyledButtonContainer>
 			</Layout>
 		</>
 	);
