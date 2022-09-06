@@ -22,6 +22,7 @@ export const GlobalStyle = createGlobalStyle`
 	html {
 		font-family: 'Tillana', cursive;
 		font-size: 62.5%;
+		font-weight: bold;
 	}
 
 	body {

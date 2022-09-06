@@ -8,6 +8,7 @@ const StyledListItem = styled.li`
 	padding: 2.5px 5px;
 	border-radius: 5px;
 	background-color: ${({current}) => (current ? 'var(--light-accent)' : '')};
+	font-size: 1.4rem;
 `;
 
 const GrowingSpan = styled.span`
