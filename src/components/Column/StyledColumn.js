@@ -11,4 +11,12 @@ const StyledColumn = styled.div`
 	background-color: var(--light-accent);
 `;
 
-export default StyledColumn;
+const StyledDiv = styled.div`
+	width: 100%;
+	height: 100%;
+	padding: 0 2px;
+	border: 1px dotted var(--dark-color);
+	border-radius: 10px;
+`;
+
+export {StyledColumn, StyledDiv};

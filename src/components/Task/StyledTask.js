@@ -5,6 +5,7 @@ const StyledTask = styled.div`
 	align-items: center;
 	justify-content: space-between;
 	gap: 5px;
+	width: 100%;
 	margin: 7.5px 0;
 	padding: 3.5px 5px;
 	border-radius: 10px;
