@@ -17,8 +17,8 @@ const StyledLink = styled.a`
 	justify-content: space-around;
 	width: 100%;
 	height: 100%;
-	border: 2px solid black;
-	border-radius: 1px;
+	border: 2px solid var(--dark-color);
+	border-radius: 2px;
 	background-color: var(--brand-color);
 	color: ${({active}) => (active ? 'var(--light-color);' : 'var(--dark-color);')};
 `;

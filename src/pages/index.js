@@ -20,7 +20,7 @@ export default function HomePage() {
 				<meta key="description" name="description" content="This is my project" />
 			</Head>
 			<Layout>
-				<h1>Meine Aufgaben App</h1>
+				<h1>My TaskTimer</h1>
 				<h2>Aktuelle Aufgabe</h2>
 				<CurrentTask />
 				<h2>Aufgaben</h2>

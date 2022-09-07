@@ -49,11 +49,11 @@ export default function CurrentTask() {
 							<Clock role="img" alt="analoge Darstellung des Timers">
 								<Time
 									style={{
-										background: `conic-gradient(var(--danger) ${
+										background: `conic-gradient(var(--brand-color) ${
 											time * 0.1
-										}deg, var(--brand-color) 0 ${
+										}deg, var(--succes) 0 ${
 											currentTasks[0].time * 6
-										}deg, transparent ${currentTasks[0].time * 6}deg)`,
+										}deg, var(--light-color) ${currentTasks[0].time * 6}deg)`,
 									}}
 								></Time>
 							</Clock>

@@ -16,7 +16,7 @@ const DragDropContainer = dynamic(
 );
 
 export default function CreateList() {
-	const columns = ['Ungewählt', 'Gewählt'];
+	const columns = ['Offen', 'Gewählt'];
 	const tasks = useStore(state => state.tasks);
 	const currentTasks = useStore(state => state.currentTasks);
 	const updateCurrentTasks = useStore(state => state.updateCurrentTasks);
