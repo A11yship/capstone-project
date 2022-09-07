@@ -76,7 +76,7 @@ export default function CurrentTask() {
 				</>
 			) : (
 				<StyledP>
-					Willkomen bei My TaskTimer. <br />
+					Willkommen bei My TaskTimer. <br />
 					Stell dir unter &quot;Neue Liste&quot; eine Liste an Aufgaben selber zusammen
 					oder lass dir unter &quot;Liste generieren&quot; eine erzeugen. Gibt ein wie
 					lange du fleißig sein willst und wie viele Aufgaben du erledigen willst, den
