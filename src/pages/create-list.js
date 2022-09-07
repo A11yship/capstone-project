@@ -3,7 +3,9 @@ import {useRouter} from 'next/router';
 import {useState} from 'react';
 
 import Button from '../components/Button/Button';
+import StyledButtonContainer from '../components/ButtonContainer/StyledButtonContainer';
 import StyledContainer from '../components/Container/StyledContainer';
+import StyledMain from '../components/StyledMain';
 import useStore from '../hooks/useStore';
 
 const DragDropContainer = dynamic(
@@ -14,7 +16,7 @@ const DragDropContainer = dynamic(
 );
 
 export default function CreateList() {
-	const columns = ['Nicht gewählte Aufgaben', 'Ausgewählte Aufgaben'];
+	const columns = ['Offen', 'Gewählt'];
 	const tasks = useStore(state => state.tasks);
 	const currentTasks = useStore(state => state.currentTasks);
 	const updateCurrentTasks = useStore(state => state.updateCurrentTasks);
@@ -34,8 +36,8 @@ export default function CreateList() {
 	}
 
 	return (
-		<>
-			<h1>Wähle aktuelle Aufgaben </h1>
+		<StyledMain>
+			<h1>Wähle Aufgaben</h1>
 			<StyledContainer>
 				<DragDropContainer
 					columns={columns}
@@ -45,8 +47,10 @@ export default function CreateList() {
 					setSelectedTasks={setSelectedTasks}
 				/>
 			</StyledContainer>
-			<Button onClick={handleCancel}>Abbrechen</Button>
-			<Button onClick={handleSubmit}>Speichern</Button>
-		</>
+			<StyledButtonContainer>
+				<Button onClick={handleCancel}>Abbrechen</Button>
+				<Button onClick={handleSubmit}>Speichern</Button>
+			</StyledButtonContainer>
+		</StyledMain>
 	);
 }

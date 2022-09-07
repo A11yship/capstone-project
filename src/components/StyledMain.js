@@ -4,8 +4,10 @@ const StyledMain = styled.main`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	gap: 20px;
-	margin: 0 0 30px;
+	min-height: ${({hasNavbar}) => (hasNavbar ? 'calc(100vh - 50px)' : '100vh')};
+	gap: 10px;
+	margin: ${({hasNavbar}) => (hasNavbar ? '0 0 50px' : '0')};
+	padding: 10px 0;
 `;
 
 export default StyledMain;

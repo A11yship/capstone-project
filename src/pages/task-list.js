@@ -2,9 +2,10 @@ import {useRouter} from 'next/router';
 import {useState} from 'react';
 
 import Button from '../components/Button/Button';
+import Icon from '../components/Icon/Icon';
 import Layout from '../components/Layout';
 import StyledList from '../components/List/StyledList';
-import StyledListItem from '../components/ListItem/StyledListItem';
+import {StyledListItem, GrowingSpan} from '../components/ListItem/StyledListItem';
 import Modal from '../components/Modal/Modal';
 import useStore from '../hooks/useStore';
 
@@ -44,9 +45,10 @@ export default function TaskList() {
 			<StyledList role="list">
 				{tasks.map(task => (
 					<StyledListItem key={task.id}>
-						<span>{task.name}</span>
+						<GrowingSpan>{task.name}</GrowingSpan>
 						<span>{task.time}min</span>
 						<Button
+							variant="icon"
 							onClick={() =>
 								router.push(
 									{
@@ -57,9 +59,11 @@ export default function TaskList() {
 								)
 							}
 						>
-							Edit
+							<Icon variant="edit" size="20px" />
 						</Button>
-						<Button onClick={() => handleClick(task)}>Löschen</Button>
+						<Button variant="icon" onClick={() => handleClick(task)}>
+							<Icon variant="delete" size="20px" />
+						</Button>
 					</StyledListItem>
 				))}
 			</StyledList>

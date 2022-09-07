@@ -1,14 +1,16 @@
 import styled from 'styled-components';
 
+const size = '45vw';
+
 const Clock = styled.div`
-	width: 204px;
-	height: 204px;
-	border: 2px black solid;
+	width: calc(${size} + 10px);
+	height: calc(${size} + 10px);
+	border: 5px var(--dark-color) solid;
 	border-radius: 50%;
 `;
 const Time = styled.div`
-	width: 200px;
-	height: 200px;
+	width: ${size};
+	height: ${size};
 	border-radius: 50%;
 `;
 export {Clock, Time};

@@ -7,9 +7,20 @@ const StyledNavbar = styled.nav`
 	align-items: center;
 	justify-content: space-around;
 	width: 100vw;
-	height: 30px;
-	border: 1px solid black;
-	background-color: white;
+	height: 50px;
+	background-color: var(--light-color);
 `;
 
-export default StyledNavbar;
+const StyledLink = styled.a`
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	width: 100%;
+	height: 100%;
+	border: 2px solid var(--dark-color);
+	border-radius: 2px;
+	background-color: var(--brand-color);
+	color: ${({active}) => (active ? 'var(--light-color);' : 'var(--dark-color);')};
+`;
+
+export {StyledNavbar, StyledLink};

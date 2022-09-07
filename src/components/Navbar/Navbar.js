@@ -1,18 +1,31 @@
 import Link from 'next/link';
+import {useRouter} from 'next/router';
 
-import StyledNavbar from './StyledNavbar';
+import Icon from '../Icon/Icon';
+
+import {StyledNavbar, StyledLink} from './StyledNavbar';
 
 export default function Navbar() {
+	const router = useRouter();
+
 	return (
 		<StyledNavbar>
 			<Link href="/task-list">
-				<a>Aufgabenliste</a>
+				<StyledLink active={router.pathname === '/task-list'}>
+					<Icon variant="list" size="40px" />
+				</StyledLink>
 			</Link>
 			<Link href="/">
-				<a>Startseite</a>
+				<StyledLink active={router.pathname === '/'}>
+					<Icon variant="play" size="40px" />
+				</StyledLink>
 			</Link>
 			<Link href="/create-task">
-				<a>Neue Aufgabe</a>
+				<StyledLink
+					active={router.pathname === '/create-task' || router.pathname === '/edit-task'}
+				>
+					<Icon variant="add" size="40px" />
+				</StyledLink>
 			</Link>
 		</StyledNavbar>
 	);

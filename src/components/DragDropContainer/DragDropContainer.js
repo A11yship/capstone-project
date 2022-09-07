@@ -66,7 +66,7 @@ export default function DragDropContainer({
 	return (
 		<DragDropContext onDragEnd={handleOnDragEnd}>
 			{columns.map(column =>
-				column === 'Nicht gewählte Aufgaben' ? (
+				column === columns[0] ? (
 					<Column key={column} column={column} tasks={unselectedTasks} />
 				) : (
 					<Column key={column} column={column} tasks={selectedTasks} />

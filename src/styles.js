@@ -9,11 +9,55 @@ export const GlobalStyle = createGlobalStyle`
 		padding: 0;
 	}
 
+	:root {
+		--light-color: #fffaf1;
+  		--light-accent: #d9d9ff;
+  		--brand-color: #6e22c3;
+  		--dark-accent: #501e71;
+  		--dark-color: #3d0066;
+		--succes: #358835;
+		--danger: #f44336
+	}
+
 	html {
-		font-size: 16px;
+		font-family: 'Tillana', cursive;
+		font-size: 62.5%;
+		font-weight: bold;
 	}
 
 	body {
-		font-size: 1rem;
+		background-color: var(--light-color);
+		color: var(--dark-color);
+  		font-size: 1.6rem;
+
 	}
+
+	/* tillana-regular - latin */
+	@font-face {
+		font-family: 'Tillana';
+  		font-style: normal;
+		font-weight: 400;
+  		src: url('/fonts/tillana-v11-latin-regular.eot'); /* IE9 Compat Modes */
+  		src: local(''),
+       		url('/fonts/tillana-v11-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+      		 url('/fonts/tillana-v11-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+       		url('/fonts/tillana-v11-latin-regular.woff') format('woff'), /* Modern Browsers */
+       		url('/fonts/tillana-v11-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+       		url('/fonts/tillana-v11-latin-regular.svg#Tillana') format('svg'); /* Legacy iOS */
+	}
+
+	/* tillana-700 - latin */
+	@font-face {
+  		font-family: 'Tillana';
+  		font-style: normal;
+  		font-weight: 700;
+  		src: url('/fonts/tillana-v11-latin-700.eot'); /* IE9 Compat Modes */
+  		src: local(''),
+       		url('/fonts/tillana-v11-latin-700.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       		url('/fonts/tillana-v11-latin-700.woff2') format('woff2'), /* Super Modern Browsers */
+       		url('/fonts/tillana-v11-latin-700.woff') format('woff'), /* Modern Browsers */
+       		url('/fonts/tillana-v11-latin-700.ttf') format('truetype'), /* Safari, Android, iOS */
+       		url('/fonts/tillana-v11-latin-700.svg#Tillana') format('svg'); /* Legacy iOS */
+	}
+
 `;

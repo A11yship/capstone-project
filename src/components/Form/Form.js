@@ -3,6 +3,8 @@ import {useState} from 'react';
 
 import useStore from '../../hooks/useStore';
 import Button from '../Button/Button';
+import StyledButtonContainer from '../ButtonContainer/StyledButtonContainer';
+import StyledInput from '../Input/StyledInput';
 
 import StyledForm from './StyledForm';
 
@@ -28,7 +30,7 @@ export default function Form({task = {}}) {
 	return (
 		<StyledForm onSubmit={handleSubmit} name="task">
 			<label htmlFor="task">Aufgabe</label>
-			<input
+			<StyledInput
 				type="text"
 				name="task"
 				id="task"
@@ -40,7 +42,7 @@ export default function Form({task = {}}) {
 				onChange={event => setTaskName(event.target.value)}
 			/>
 			<label htmlFor="duration">Dauer in Minuten</label>
-			<input
+			<StyledInput
 				type="number"
 				name="duration"
 				id="duration"
@@ -50,8 +52,10 @@ export default function Form({task = {}}) {
 				value={duration}
 				onChange={event => setDuration(Number.parseInt(event.target.value), 10)}
 			/>
-			{task.id && <Button onClick={() => router.push('/task-list')}>Abbrechen</Button>}
-			<Button type="submit">Speichern</Button>
+			<StyledButtonContainer inForm>
+				{task.id && <Button onClick={() => router.push('/task-list')}>Abbrechen</Button>}
+				<Button type="submit">Speichern</Button>
+			</StyledButtonContainer>
 		</StyledForm>
 	);
 }

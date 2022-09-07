@@ -3,8 +3,10 @@ import {useEffect, useState} from 'react';
 import useStore from '../../hooks/useStore';
 import {Clock, Time} from '../AnalogTimer/StyledAnalogtimer';
 import Button from '../Button/Button';
+import StyledButtonContainer from '../ButtonContainer/StyledButtonContainer';
+import Icon from '../Icon/Icon';
 
-import {StyledCurrentTask, StyledSpan} from './StyledCurrentTask';
+import {StyledCurrentTask, StyledP, StyledSpan} from './StyledCurrentTask';
 
 export default function CurrentTask() {
 	const currentTasks = useStore(state => state.currentTasks);
@@ -47,23 +49,39 @@ export default function CurrentTask() {
 							<Clock role="img" alt="analoge Darstellung des Timers">
 								<Time
 									style={{
-										background: `conic-gradient(red ${time * 0.1}deg, blue 0 ${
+										background: `conic-gradient(var(--brand-color) ${
+											time * 0.1
+										}deg, var(--succes) 0 ${
 											currentTasks[0].time * 6
-										}deg, transparent ${currentTasks[0].time * 6}deg)`,
+										}deg, var(--light-color) ${currentTasks[0].time * 6}deg)`,
 									}}
 								></Time>
 							</Clock>
-							<Button onClick={() => setTimerIsRunnig(!timerIsRunnig)}>
-								{timerIsRunnig ? 'Pause' : 'Start'}
-							</Button>
 						</>
 					) : (
 						<StyledSpan over>Fertig!</StyledSpan>
 					)}
-					<Button onClick={handleDone}>done</Button>
+					<StyledButtonContainer>
+						{time ? (
+							<Button variant="icon" onClick={() => setTimerIsRunnig(!timerIsRunnig)}>
+								{timerIsRunnig ? <Icon variant="break" /> : <Icon variant="play" />}
+							</Button>
+						) : (
+							''
+						)}
+						<Button variant="icon" onClick={handleDone}>
+							<Icon variant="done" />
+						</Button>
+					</StyledButtonContainer>
 				</>
 			) : (
-				<StyledSpan>Keine aktuellen Aufgabe</StyledSpan>
+				<StyledP>
+					Willkommen bei My TaskTimer. <br />
+					Stell dir unter &quot;Neue Liste&quot; eine Liste an Aufgaben selber zusammen
+					oder lass dir unter &quot;Liste generieren&quot; eine erzeugen. Gibt ein wie
+					lange du fleißig sein willst und wie viele Aufgaben du erledigen willst, den
+					Rest erledigt die App.
+				</StyledP>
 			)}
 		</StyledCurrentTask>
 	);

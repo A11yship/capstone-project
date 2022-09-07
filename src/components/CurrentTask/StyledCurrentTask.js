@@ -4,16 +4,21 @@ const StyledCurrentTask = styled.div`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	width: fit-content;
-	border: 1px solid black;
-	border-radius: 5px;
+	width: 80vw;
+	padding: 10px;
+	gap: 5px;
+	border-radius: 30px;
+	background-color: var(--light-accent);
 `;
 
 const StyledSpan = styled.span`
-	padding: 5px;
-	color: ${({over}) => (over ? 'green' : 'black')};
-	font-size: ${({over}) => (over ? '1.7rem' : '1.3rem')};
-	font-weight: bold;
+	color: ${({over}) => (over ? 'var(--succes)' : 'var(--dark-color)')};
+	font-size: ${({over}) => (over ? '2.5rem' : '2rem')};
 `;
 
-export {StyledCurrentTask, StyledSpan};
+const StyledP = styled.p`
+	font-weight: normal;
+	text-align: center;
+`;
+
+export {StyledCurrentTask, StyledSpan, StyledP};
