@@ -12,14 +12,14 @@ describe('Button component', () => {
 	it('should render children', () => {
 		const text = 'Click me';
 		render(<Button>{text}</Button>);
-		const button = screen.getByText(text);
+		const button = screen.getByRole('button', {name: text});
 		expect(button).toBeInTheDocument();
 	});
 	it('should allow clicks', async () => {
 		const handleClick = jest.fn();
 		const text = 'Click me';
 		render(<Button onClick={handleClick}>{text}</Button>);
-		const button = screen.getByText(text);
+		const button = screen.getByRole('button', {name: text});
 		await userEvent.click(button);
 		expect(handleClick).toHaveBeenCalledTimes(1);
 	});
