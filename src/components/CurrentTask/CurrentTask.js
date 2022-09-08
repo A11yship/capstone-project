@@ -16,7 +16,7 @@ export default function CurrentTask() {
 	const [timerIsRunnig, setTimerIsRunnig] = useState(false);
 
 	useEffect(() => {
-		setTime(currentTasks.length ? currentTasks[0].time * 60 : 0);
+		setTime(currentTasks.length ? currentTasks[0].duration * 60 : 0);
 	}, [currentTasks]);
 
 	useEffect(() => {
@@ -52,8 +52,10 @@ export default function CurrentTask() {
 										background: `conic-gradient(var(--brand-color) ${
 											time * 0.1
 										}deg, var(--succes) 0 ${
-											currentTasks[0].time * 6
-										}deg, var(--light-color) ${currentTasks[0].time * 6}deg)`,
+											currentTasks[0].duration * 6
+										}deg, var(--light-color) ${
+											currentTasks[0].duration * 6
+										}deg)`,
 									}}
 								></Time>
 							</Clock>
