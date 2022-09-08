@@ -10,7 +10,7 @@ import StyledForm from './StyledForm';
 
 export default function TaskForm({task = {}}) {
 	const [taskName, setTaskName] = useState(task.name ?? '');
-	const [duration, setDuration] = useState(task.time ?? '');
+	const [duration, setDuration] = useState(task.duration ?? '');
 	const addTask = useStore(state => state.addTask);
 	const editTask = useStore(state => state.editTask);
 	const router = useRouter();

@@ -40,7 +40,7 @@ export default function HomePage() {
 					{currentTasks.map((task, index) => (
 						<StyledListItem key={task.id} current={index === 0}>
 							<span>{task.name}</span>
-							<span>{task.time}min</span>
+							<span>{task.duration}min</span>
 						</StyledListItem>
 					))}
 				</StyledListWrapper>

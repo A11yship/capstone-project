@@ -126,3 +126,19 @@ describe('TaskForm component', () => {
 		expect(addTask).not.toHaveBeenCalled();
 	});
 });
+describe('TaskForm edit component', () => {
+	it('should have a cancel button', () => {
+		const taskObj = {id: '1', name: 'First Item', duration: 5};
+		render(<TaskForm task={taskObj} />);
+		const button = screen.getByRole('button', {name: /abbrechen/i});
+		expect(button).toBeInTheDocument();
+	});
+	it('should have filled inputs', () => {
+		const taskObj = {id: '1', name: 'First Item', duration: 5};
+		render(<TaskForm task={taskObj} />);
+		const inputTask = screen.getByLabelText(/Aufgabe/i);
+		const inputDuration = screen.getByLabelText(/Dauer in Minuten/i);
+		expect(inputTask).toHaveValue(taskObj.name);
+		expect(inputDuration).toHaveValue(taskObj.duration);
+	});
+});

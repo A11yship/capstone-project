@@ -22,7 +22,7 @@ export default function GenerateList() {
 		const shuffledTasks = [...tasks];
 		shuffle(shuffledTasks);
 		const orderedTasks = shuffledTasks.sort(
-			(firstTask, secondTask) => firstTask.time - secondTask.time
+			(firstTask, secondTask) => firstTask.duration - secondTask.duration
 		);
 		const selectedTasks = selectTasks(orderedTasks, number, totalDuration);
 		shuffle(selectedTasks);

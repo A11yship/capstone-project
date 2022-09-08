@@ -6,17 +6,17 @@ const useStore = create(
 	persist(
 		(set, get) => ({
 			tasks: [],
-			addTask(name, time) {
-				set(({tasks}) => ({tasks: [...tasks, {id: nanoid(), name, time}]}));
+			addTask(name, duration) {
+				set(({tasks}) => ({tasks: [...tasks, {id: nanoid(), name, duration}]}));
 			},
 			deleteTask(currentTaskId) {
 				set(({tasks}) => ({tasks: tasks.filter(task => task.id !== currentTaskId)}));
 				get().deleteFromCurrentTasks(currentTaskId);
 			},
-			editTask(currentId, name, time) {
+			editTask(currentId, name, duration) {
 				set(({tasks}) => ({
 					tasks: tasks.map(task =>
-						task.id === currentId ? {...task, name, time} : task
+						task.id === currentId ? {...task, name, duration} : task
 					),
 				}));
 			},
