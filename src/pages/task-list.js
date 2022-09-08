@@ -1,13 +1,17 @@
+import dynamic from 'next/dynamic';
 import {useRouter} from 'next/router';
 import {useState} from 'react';
 
 import Button from '../components/Button/Button';
 import Icon from '../components/Icon/Icon';
 import Layout from '../components/Layout';
-import StyledList from '../components/List/StyledList';
 import {StyledListItem, GrowingSpan} from '../components/ListItem/StyledListItem';
 import Modal from '../components/Modal/Modal';
 import useStore from '../hooks/useStore';
+
+const StyledListWrapper = dynamic(() => import('../components/List/StyledList'), {
+	ssr: false,
+});
 
 export default function TaskList() {
 	const tasks = useStore(state => state.tasks);
@@ -42,7 +46,7 @@ export default function TaskList() {
 					onSubmit={handleSubmit}
 				/>
 			)}
-			<StyledList role="list">
+			<StyledListWrapper role="list">
 				{tasks.map(task => (
 					<StyledListItem key={task.id}>
 						<GrowingSpan>{task.name}</GrowingSpan>
@@ -66,7 +70,7 @@ export default function TaskList() {
 						</Button>
 					</StyledListItem>
 				))}
-			</StyledList>
+			</StyledListWrapper>
 		</Layout>
 	);
 }
