@@ -11,7 +11,7 @@ export default function Task({task, index}) {
 					{...provided.dragHandleProps}
 					ref={provided.innerRef}
 				>
-					<span>{task.name}</span> <span>{task.time} min</span>
+					<span>{task.name}</span> <span>{task.duration} min</span>
 				</StyledTask>
 			)}
 		</Draggable>

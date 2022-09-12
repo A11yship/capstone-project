@@ -1,6 +1,6 @@
 import {useRouter} from 'next/router';
 
-import Form from '../components/Form/Form';
+import TaskForm from '../components/Form/TaskForm';
 import Layout from '../components/Layout';
 
 export default function EditTask() {
@@ -9,7 +9,7 @@ export default function EditTask() {
 	return (
 		<Layout>
 			<h1>Aufgabe bearbeiten</h1>
-			<Form task={query} />
+			<TaskForm task={query} />
 		</Layout>
 	);
 }

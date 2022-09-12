@@ -8,7 +8,7 @@ import userEvent from '@testing-library/user-event';
 
 import useStore from '../../hooks/useStore';
 
-import Form from './Form';
+import TaskForm from './TaskForm';
 
 jest.mock('next/router', () => ({
 	useRouter() {
@@ -18,9 +18,9 @@ jest.mock('next/router', () => ({
 	},
 }));
 
-describe('Form component', () => {
+describe('TaskForm component', () => {
 	it('should be displayed', () => {
-		render(<Form />);
+		render(<TaskForm />);
 		const form = screen.getByRole('form');
 		expect(form).toBeInTheDocument();
 	});
@@ -28,7 +28,7 @@ describe('Form component', () => {
 		const store = renderHook(() => useStore());
 		const {addTask} = store.result.current;
 
-		const {container} = render(<Form />);
+		const {container} = render(<TaskForm />);
 
 		const button = screen.getByRole('button', {name: /speichern/i});
 
@@ -46,7 +46,7 @@ describe('Form component', () => {
 		const task = 'Post';
 		const duration = 5;
 
-		render(<Form />);
+		render(<TaskForm />);
 
 		const inputTask = screen.getByLabelText(/Aufgabe/i);
 		const inputDuration = screen.getByLabelText(/Dauer in Minuten/i);
@@ -66,7 +66,7 @@ describe('Form component', () => {
 		const task = '  ';
 		const duration = 5;
 
-		const {container} = render(<Form />);
+		const {container} = render(<TaskForm />);
 
 		const inputTask = screen.getByLabelText(/Aufgabe/i);
 		const inputDuration = screen.getByLabelText(/Dauer in Minuten/i);
@@ -88,7 +88,7 @@ describe('Form component', () => {
 		const task = 'Post';
 		const duration = 'abc';
 
-		const {container} = render(<Form />);
+		const {container} = render(<TaskForm />);
 
 		const inputTask = screen.getByLabelText(/Aufgabe/i);
 		const inputDuration = screen.getByLabelText(/Dauer in Minuten/i);
@@ -110,7 +110,7 @@ describe('Form component', () => {
 		const task = 'Post';
 		const duration = -2;
 
-		const {container} = render(<Form />);
+		const {container} = render(<TaskForm />);
 
 		const inputTask = screen.getByLabelText(/Aufgabe/i);
 		const inputDuration = screen.getByLabelText(/Dauer in Minuten/i);
@@ -124,5 +124,21 @@ describe('Form component', () => {
 		expect(invalidInput).toBeInTheDocument();
 
 		expect(addTask).not.toHaveBeenCalled();
+	});
+});
+describe('TaskForm edit component', () => {
+	it('should have a cancel button', () => {
+		const taskObj = {id: '1', name: 'First Item', duration: 5};
+		render(<TaskForm task={taskObj} />);
+		const button = screen.getByRole('button', {name: /abbrechen/i});
+		expect(button).toBeInTheDocument();
+	});
+	it('should have filled inputs', () => {
+		const taskObj = {id: '1', name: 'First Item', duration: 5};
+		render(<TaskForm task={taskObj} />);
+		const inputTask = screen.getByLabelText(/Aufgabe/i);
+		const inputDuration = screen.getByLabelText(/Dauer in Minuten/i);
+		expect(inputTask).toHaveValue(taskObj.name);
+		expect(inputDuration).toHaveValue(taskObj.duration);
 	});
 });

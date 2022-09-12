@@ -11,7 +11,7 @@ export default function selectTasks(
 	const avarageDuration = totalDuration / number;
 	//initialize indeces
 	if (upperIndex === undefined) {
-		upperIndex = orderedTasks.findIndex(task => task.time >= avarageDuration);
+		upperIndex = orderedTasks.findIndex(task => task.duration >= avarageDuration);
 		lowerIndex = upperIndex - 1;
 	}
 	//termination conditions
@@ -25,17 +25,17 @@ export default function selectTasks(
 	//Adding new tasks depending on the next higher or lower index
 	if (up) {
 		if (upperIndex < orderedTasks.length) {
-			if (orderedTasks[upperIndex].time === avarageDuration) {
+			if (orderedTasks[upperIndex].duration === avarageDuration) {
 				up = !up;
 			}
 			selectedTasks.push(orderedTasks[upperIndex]);
-			currentDuration += orderedTasks[upperIndex].time;
+			currentDuration += orderedTasks[upperIndex].duration;
 			upperIndex += 1;
 		}
 	} else {
 		if (lowerIndex >= 0) {
 			selectedTasks.push(orderedTasks[lowerIndex]);
-			currentDuration += orderedTasks[lowerIndex].time;
+			currentDuration += orderedTasks[lowerIndex].duration;
 			lowerIndex -= 1;
 		}
 	}

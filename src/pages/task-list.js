@@ -50,7 +50,7 @@ export default function TaskList() {
 				{tasks.map(task => (
 					<StyledListItem key={task.id}>
 						<GrowingSpan>{task.name}</GrowingSpan>
-						<span>{task.time}min</span>
+						<span>{task.duration}min</span>
 						<Button
 							variant="icon"
 							onClick={() =>
