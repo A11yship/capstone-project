@@ -1,26 +1,17 @@
-# Next.js App
+# My TaskTimer
 
-This is a template for [Next.js](https://nextjs.org/) with additional tools.
+My TaskTimer is a ADHD friendly housekeeping/ToDo App.
+You can add tasks and how much time you planed. With this tasks you can create a list of those you want to do or let the app generation one for you. While working on your list you see the current task and how much time for the tasks is left. As specialty you have an analog clock wich displays the remaining time.
 
-<!-- toc -->
+![Screenshoot](public/images/Sreenshoot.png)
 
--   [Tech-Stack](#tech-stack)
--   [Project Setup](#project-setup)
-    -   [Set up Vercel](#set-up-vercel)
-        -   [App](#app)
-        -   [Storybook](#storybook)
--   [Getting started](#getting-started)
--   [Test Driven Development](#test-driven-development)
--   [Commands](#commands)
+## About
 
-<!-- tocstop -->
-
-It uses the following tools/libraries:
+The app is my capstone projekt for the web development bootcamp from @neuefische. During the last four weeks of the bootcamp we had to develop our own web app in a projekt setup. We had to write user stories, review the code of each other and do quality assurance.
 
 ## Tech-Stack
 
 -   [Next.js](https://nextjs.org/)
--   [Storybook](https://storybook.js.org/)
 -   [Jest](https://jestjs.io/)
 -   [Testing Library](https://testing-library.com/)
 -   [Stylelint](https://stylelint.io/)
@@ -28,97 +19,13 @@ It uses the following tools/libraries:
 -   [Prettier](https://prettier.io/)
 -   [Husky](https://typicode.github.io/husky/)
 -   [Zustand](https://zustand-demo.pmnd.rs/)
+-   [Styled Components](https://styled-components.com/)
+-   [@hello-pangea/dnd](https://github.com/hello-pangea/dnd)
 
 ## Project Setup
 
-This project uses multiple Vercel deployments to make design/code reviews easier:
-
--   App Production
--   App Preview
--   Storybook Production
--   Storybook Preview
-
-### Set up Vercel
-
-Please follow this guide: https://vercel.com/docs/concepts/git
-
-#### App
-
-1.Follow the default setup for Next.js.
-
-#### Storybook
-
-1. Adjust the "Build and Output Settings"
-    - BUILD COMMAND: `npm run storybook:build`
-    - OUTPUT DIRECTORY: `./storybook-static`
-
-<p align="center"><img src="docs/resources/vercel-storybook.png" alt="Vercel Storybook settings" width="600"/></p>
-
-## Getting started
-
-**Run the development server:**
-
-```bash
-npm run dev
-```
-
-**Run storybook:**
-
-```shell
-npm run storybook
-```
-
-## Test Driven Development
-
-We use jest to write unit tests. Please look at the Documentation for [Jest](https://jestjs.io/)
-and [testing-library](https://testing-library.com/docs/react-testing-library/intro/).
-
-## Commands
-
-**Run the development server:**
-
-```bash
-npm run dev
-```
-
-**Build:**
-
-```shell
-npm run build
-```
-
-**Run storybook:**
-
-```shell
-npm run storybook
-```
-
-**Build storybook:**
-
-```shell
-npm run storybook:build
-```
-
-**Run all tests:**
-
-```shell
-npm run test
-```
-
-**Run stylelint**
-
-```shell
-npm run stylelint
-```
-
-**Run eslint**
-
-```shell
-npm run eslint
-```
-
-**Run all linters**
-
-```shell
-npm run lint
-```
+-   Clone this repository
+-   Install all dependencies with `$ npm install`
+-   Run app in dev mode with `$ npm run dev`
+-   Server: [http://localhost:3000/](http://localhost:3000/)
+-   Run tests via `$ npm run test`
