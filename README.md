@@ -3,6 +3,8 @@
 My TaskTimer is a ADHD friendly housekeeping/ToDo App.
 You can add tasks and how much time you planed. With this tasks you can create a list of those you want to do or let the app generation one for you. While working on your list you see the current task and how much time for the tasks is left. As specialty you have an analog clock wich displays the remaining time.
 
+![Screenshoot](public/images/Sreenshoot.png)
+
 ## About
 
 The app is my capstone projekt for the web development bootcamp from @neuefische. During the last four weeks of the bootcamp we had to develop our own web app in a projekt setup. We had to write user stories, review the code of each other and do quality assurance.
